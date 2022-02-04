@@ -341,6 +341,49 @@ section#iconMenu > article > ul >li  div > i {
 section#iconMenu > article > ul >li  span {
 	margin-top :5px;
 }
+.week {
+	margin : 0 auto;
+	width : 1000px;
+	height : 420px;
+}
+ul.grid {
+	padding : 0 20px;
+	display : grid;
+	grid : repeat(3, 140px)/auto-flow 308px;
+	grid-column-gap: 10px;
+	/* grid-template-columns: 30% 30% 30%;
+	grid-column-gap: 3%;
+	grid-template-rows:  33% 33% 33%; */
+}
+ul.grid > li {
+	border : 1px dashed coral;
+	padding : 10px 5px;
+}
+ul.grid > li > div {
+	float : left;
+}
+ul.grid > li > div:first-child {
+	width : 30%;
+	height : 100%;
+	border-right : 1px solid skyblue;
+}
+ul.grid > li > div:last-child {
+	width : 70%;
+}
+ul.grid > li > div:last-child > h3, ul.grid > li > div:last-child > div {
+	float : left;
+}
+ul.grid > li > div:last-child > h3 {
+	width : 18%;
+	line-height: 108px;
+	text-align: center;
+}
+ul.grid > li > div:last-child > div {
+	width : 82%;
+	padding : 20px 5px;
+}
+
+/* 화면 너비에 따른 화면 구성*/
 @media screen and (max-width:1480px) {
 	section#iconMenu > article.iconWrap {
 	width : 990px;
@@ -384,5 +427,23 @@ section#iconMenu > article > ul >li  div {
 }
 section#iconMenu > article > ul >li  div > i {
 	font-size : 25px;
+}
+section#bestWrap {
+	width : 100%;
+}
+.week {
+	margin : 0 auto;
+	width : 820px;
+	height :330px;
+}
+ul.grid {
+	padding : 0 10px;
+	display : grid;
+	grid : repeat(3, 110px)/auto-flow 260px;
+	grid-column-gap: 7px;
+}
+ul.grid > li {
+	border : 1px dashed coral;
+	padding : 5px;
 }
 }

@@ -6,7 +6,121 @@
 <%@ include file="slider.jsp" %>
     
     <section id="NewBookSlide">
-        <h1>New Books Slide</h1>
+        <h1>베스트셀러</h1>
+    </section>
+    <section id="bestWrap">
+    	<div class="week">
+    		<ul  class="grid">
+    			<li class="clearfix">
+    				<div class="bookImg"><a href=""><img src=""></a></div>
+    				<div class="clearfix">
+    					<h3>1</h3>
+    					<div class="subTitle">
+    						<a href="">
+    							<h4>책제목</h4>
+    							<p>작가</p>
+    						</a>
+    					</div>
+    				</div>
+    			</li>
+    			<li class="clearfix">
+    				<div class="bookImg"><a href=""><img src=""></a></div>
+    				<div class="clearfix">
+    					<h3>2</h3>
+    					<div class="subTitle">
+    						<a href="">
+    							<h4>책제목</h4>
+    							<p>작가</p>
+    						</a>
+    					</div>
+    				</div>
+    			</li>
+    			<li class="clearfix">
+    				<div class="bookImg"><a href=""><img src=""></a></div>
+    				<div class="clearfix">
+    					<h3>3</h3>
+    					<div class="subTitle">
+    						<a href="">
+    							<h4>책제목</h4>
+    							<p>작가</p>
+    						</a>
+    					</div>
+    				</div>
+    			</li>
+    			<li class="clearfix">
+    				<div class="bookImg"><a href=""><img src=""></a></div>
+    				<div class="clearfix">
+    					<h3>4</h3>
+    					<div class="subTitle">
+    						<a href="">
+    							<h4>책제목</h4>
+    							<p>작가</p>
+    						</a>
+    					</div>
+    				</div>
+    			</li>
+    			<li class="clearfix">
+    				<div class="bookImg"><a href=""><img src=""></a></div>
+    				<div class="clearfix">
+    					<h3>5</h3>
+    					<div class="subTitle">
+    						<a href="">
+    							<h4>책제목</h4>
+    							<p>작가</p>
+    						</a>
+    					</div>
+    				</div>
+    			</li>
+    			<li class="clearfix">
+    				<div class="bookImg"><a href=""><img src=""></a></div>
+    				<div class="clearfix">
+    					<h3>6</h3>
+    					<div class="subTitle">
+    						<a href="">
+    							<h4>책제목</h4>
+    							<p>작가</p>
+    						</a>
+    					</div>
+    				</div>
+    			</li>
+    			<li class="clearfix">
+    				<div class="bookImg"><a href=""><img src=""></a></div>
+    				<div class="clearfix">
+    					<h3>7</h3>
+    					<div class="subTitle">
+    						<a href="">
+    							<h4>책제목</h4>
+    							<p>작가</p>
+    						</a>
+    					</div>
+    				</div>
+    			</li>
+    			<li class="clearfix">
+    				<div class="bookImg"><a href=""><img src=""></a></div>
+    				<div class="clearfix">
+    					<h3>8</h3>
+    					<div class="subTitle">
+    						<a href="">
+    							<h4>책제목</h4>
+    							<p>작가</p>
+    						</a>
+    					</div>
+    				</div>
+    			</li>
+    			<li class="clearfix">
+    				<div class="bookImg"><a href=""><img src=""></a></div>
+    				<div class="clearfix">
+    					<h3>9</h3>
+    					<div class="subTitle">
+    						<a href="">
+    							<h4>책제목</h4>
+    							<p>작가</p>
+    						</a>
+    					</div>
+    				</div>
+    			</li>
+    		</ul>
+    	</div>
     </section>
     
     <section id="TabWrap">
