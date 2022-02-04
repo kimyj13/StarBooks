@@ -6,7 +6,7 @@
 	<form id="joinForm">
 		<p>
 			<span class="offfocus"></span>
-			<input type="text" name="userid" placeholder="아이디(ID)">
+			<input type="text" name="userid" placeholder="아이디(ID)" onkeyup="idCheck(this.value)">
 			<output class="idCheck"></output>
 		</p>
 		<p>
@@ -21,7 +21,8 @@
 		</p>
 		<p>
 		    <span class="offfocus">이름 입력</span>
-			<input type="text" name="username" placeholder="이름">
+			<input type="text" name="username" placeholder="이름" onkeyup="nameCheck(this.value)">
+			<output class="nameCheck"></output>
 		</p>
 		<p>
 		    <span class="offfocus"></span>
@@ -32,7 +33,7 @@
 		<p style="float : left">
 			<span class="offfocus"></span>
 			<input type="text" name="userbirth" placeholder="생년월일" style="width : 240px;" onkeyup="birthCheck(this.value)">
-			<output class="birthCheck"></output>
+			<output class="birthCheck" style="width: 350px;position: absolute;top: 60px;"></output>
 		</p>
 		<div class="button-wrap clearfix">
 			<input class="hidden radio-label" id="female-button" type="radio" name="usergender" checked="checked">
@@ -56,16 +57,28 @@ let check1 = false;
 let check2 = false;
 let check3 = false;
 let emailTest = /[A-Za-z0-9_\.\-]+@[A-z-a-z\-]+\.[A-Za-z\-]/;
-let pwTest1 = /[0-9]/;
-let pwTest2 = /[A-Za-z]/;
-let pwTest3 = /[\{\}\[\]\/?.,;:|\(\)~!@#$%^&*\\\=\'\"]/;
+let test1 = /[0-9]/;
+let test2 = /[A-Za-z]/;
+let test3 = /[\{\}\[\]\/?.,;:|\(\)~!@#$%^&*\\\=\'\"]/;
 let birthTest = /[0-9]/;
+
+	function idCheck(id){
+		const inputId = document.querySelector('input[name="userid"]');
+		if(!test1.test(id) || !test2.test(id) && (id.length >= 5 && id.length <= 20)){
+			document.querySelector('.idCheck').value="5~20자. 영문,숫자조합해주세요."
+			inputId.classList.add('nocheck');
+		}else{
+			document.querySelector('.idCheck').value="";
+			inputId.classList.remove('nocheck');
+			inputId.classList.add('check');
+		}
+	}
 
 	function pwCheck(pw){
 		//console.log(pw)
 		const inputPw = document.querySelector('input[name="userpw"]');
-		if(!pwTest1.test(pw) || !pwTest2.test(pw) || !pwTest3.test(pw) || !(pw.length >= 8 && pw.length <= 15)){
-			document.querySelector('.pwCheck2').value = "8~15자리, 영문/숫자/특수문자를 조합해주세요.";
+		if(!test1.test(pw) || !test2.test(pw) || !test3.test(pw) || !(pw.length >= 8 && pw.length <= 15)){
+			document.querySelector('.pwCheck2').value = "8~15자. 영문,숫자,특수문자를 조합해주세요.";
 			inputPw.setAttribute('class', 'nocheck');
 		}else{
 			document.querySelector('.pwCheck2').value = "";
@@ -86,6 +99,20 @@ let birthTest = /[0-9]/;
 				document.querySelector('.pwCheck2').value = "";		
 				inputPw2.setAttribute('class','check');		
 			}
+		}
+	}
+	
+	function nameCheck(name){
+		const inputName = document.querySelector('input[name="username"]');
+		console.log(test1.test(name))
+		console.log(test3.test(name))
+		if(test1.test(name) || test3.test(name)){
+			document.querySelector('.nameCheck').value="이름에 숫자나 특수문자는 사용불가합니다."
+			inputName.classList.add('nocheck');
+		}else{
+			document.querySelector('.nameCheck').value="";
+			inputName.classList.remove('nocheck');
+			inputName.classList.add('check');
 		}
 	}
 	
@@ -124,7 +151,7 @@ let birthTest = /[0-9]/;
         span.classList.add('onfocus');
         switch(target.name){
             case 'userid' : span.innerText='아이디 : 5~20자 영문,숫자조합';break;
-            case 'userpw' : span.innerText = '비밀번호 : 8~20자 영문,숫자,특수문자 조합';break;
+            case 'userpw' : span.innerText = '비밀번호 : 8~15자 영문,숫자,특수문자 조합';break;
             case 'userbirth' : span.innerText = '생년월일(예: 19900101)';break;
             case 'useremail':span.innerText = 'E-Mail (예:starbooks@naver.com)';break;
         }
