@@ -31,14 +31,15 @@
 		<div class="clearfix" style="height : 70px;">
 		<p style="float : left">
 			<span class="offfocus"></span>
-			<input type="text" name="birth" placeholder="생년월일" style="width : 240px;" onkeyup="birthCheck(this)">
+			<input type="text" name="userbirth" placeholder="생년월일" style="width : 240px;" onkeyup="birthCheck(this.value)">
+			<output class="birthCheck"></output>
 		</p>
 		<div class="button-wrap clearfix">
-			<input class="hidden radio-label" id="female-button" type="radio" name="gender" checked="checked">
+			<input class="hidden radio-label" id="female-button" type="radio" name="usergender" checked="checked">
     		<label class="button-label" for="female-button">
       			<h4>여자</h4>
     		</label>
-    		<input class="hidden radio-label" id="malebutton" type="radio" name="gender">
+    		<input class="hidden radio-label" id="malebutton" type="radio" name="usergender">
     		<label class="button-label" for="malebutton">
       			<h4>남자</h4>
     		</label>
@@ -58,6 +59,7 @@ let emailTest = /[A-Za-z0-9_\.\-]+@[A-z-a-z\-]+\.[A-Za-z\-]/;
 let pwTest1 = /[0-9]/;
 let pwTest2 = /[A-Za-z]/;
 let pwTest3 = /[\{\}\[\]\/?.,;:|\(\)~!@#$%^&*\\\=\'\"]/;
+let birthTest = /[0-9]/;
 
 	function pwCheck(pw){
 		//console.log(pw)
@@ -97,6 +99,19 @@ let pwTest3 = /[\{\}\[\]\/?.,;:|\(\)~!@#$%^&*\\\=\'\"]/;
 			inputEmail.setAttribute('class','check');		
 		}
 	}
+	
+	function birthCheck(birth){
+		const inputBirth = document.querySelector('input[name="userbirth"]');
+		console.log(birth.length)
+		if(!birthTest.test(birth) || (birth.length != 8)){
+			document.querySelector('.birthCheck').value = "생년월일을 8자리 숫자로만 입력하세요(19900101)";
+			inputBirth.classList.add('nocheck');
+		}else{
+			document.querySelector('.birthCheck').value = "";
+			inputBirth.classList.remove('nocheck');
+			inputBirth.classList.add('check');		
+		}
+	}
 </script>
 <script type="text/javascript">
 	const input = document.querySelectorAll('input');
@@ -110,7 +125,7 @@ let pwTest3 = /[\{\}\[\]\/?.,;:|\(\)~!@#$%^&*\\\=\'\"]/;
         switch(target.name){
             case 'userid' : span.innerText='아이디 : 5~20자 영문,숫자조합';break;
             case 'userpw' : span.innerText = '비밀번호 : 8~20자 영문,숫자,특수문자 조합';break;
-            case 'birth' : span.innerText = '생년월일(예: 19900101)';break;
+            case 'userbirth' : span.innerText = '생년월일(예: 19900101)';break;
             case 'useremail':span.innerText = 'E-Mail (예:starbooks@naver.com)';break;
         }
             
@@ -130,7 +145,7 @@ let pwTest3 = /[\{\}\[\]\/?.,;:|\(\)~!@#$%^&*\\\=\'\"]/;
                 case 'userpw2' :target.placeholder='비밀번호 재입력'; break;
                 case 'username' : target.placeholder = '이름'; break;
                 case 'useremail' : target.placeholder = '이메일 주소'; break;
-                case 'birth' : target.placeholder='비밀번호 재입력'; break;
+                case 'userbirth' : target.placeholder='비밀번호 재입력'; break;
                 case 'useremail' :target.placeholder='생년월일'; break;
             }   
         }
