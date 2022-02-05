@@ -6,9 +6,10 @@
 <%@ include file="slider.jsp" %>
     
     <section id="NewBookSlide">
-        <h1>베스트셀러</h1>
+        <h1>신간도서</h1>
     </section>
     <section id="bestWrap">
+    <h1>베스트셀러</h1>
     	<div class="week">
     		<ul  class="grid">
     			<li class="clearfix">
