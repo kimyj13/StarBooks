@@ -35,9 +35,11 @@
                 	<button onclick="location.href='${cpath}/member/join'">회원가입</button>
                 	<button onclick="location.href='${cpath}/member/login'">로그인</button>
                 </c:if> 
-                	<%-- <button onclick="location.href='${cpath}/order/cash'">캐시충전</button>
+                <c:if test="${not empty login }">
+                	 <button onclick="location.href='${cpath}/order/cash'">캐시충전</button>
                 	<button onclick="location.href='${cpath}/member/mybooks'">내서재</button>
- --%>            </div>
+                </c:if>
+        </div>
         </div>
         <div class="header-bottom">
             <nav id="menu">

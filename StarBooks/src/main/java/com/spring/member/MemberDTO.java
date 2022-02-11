@@ -11,6 +11,8 @@ public class MemberDTO {
 	
 	private int idx;
 	private String userid, userpw, username, useremail, userbirth, usergender;
+	private char isCookie;
+
 	public int getIdx() {
 		return idx;
 	}
@@ -53,5 +55,10 @@ public class MemberDTO {
 	public void setUsergender(String usergender) {
 		this.usergender = usergender;
 	}
-	
+	public char getIsCookie() {
+		return isCookie;
+	}
+	public void setIsCookie(char isCookie) {
+		this.isCookie = isCookie;
+	}	
 }

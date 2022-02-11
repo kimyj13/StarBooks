@@ -3,12 +3,14 @@
 <%@ include file="mem_header.jsp" %>
 
 <section id="loginWrap">
-
-	<form id="loginForm">
-		<p><input type="text" name="userid" placeholder="아이디(ID)"></p>
+<c:if test="${not empty cookieId }">
+	<c:set var="checked" value="checked" />
+</c:if>
+	<form id="loginForm" method="POST">
+		<p><input type="text" name="userid" placeholder="아이디(ID)" value="${cookieId}"></p>
 		<p><input type="password" name="userpw" placeholder="비밀번호" style="margin-top : 0; border-bottom : none; border-top : none;"></p>
 		<p style="width : 400px;height : 45px; line-height : 45px; border : 1px solid #d6deeb; background-color : #f7fbff;  color :#303538;  padding-left:10px;">
-			<input type="checkbox" id="idCookie" value="로그인상태유지" style="width : 17px;height : 17px;">
+			<input type="checkbox" id="idCookie" name="isCookie" value="y" ${checked } style="width : 17px;height : 17px;">
 			<label for="idCheck" style="font-size : 14px;">로그인상태유지</label>
 			
 			<a href="${cpath }/member/findid"  style="margin-left : 80px; font-size : 13px;">아이디 찾기</a> | 
