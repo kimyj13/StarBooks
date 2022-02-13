@@ -74,10 +74,13 @@
     	const clickPath = document.location.href;
     	const clickArr = clickPath.split('/');
     	let aClick;
-    	if(clickArr[clickArr.length-1] == ""){
-    		aClick = document.querySelector('.home')
-    	}else{
-    		aClick = document.querySelector('.'+ clickArr[clickArr.length-1]);	
+    	if(clickArr[4] != "books"){    			
+	    	if(clickArr[clickArr.length-1] == ""){
+	    		aClick = document.querySelector('.home')
+	    	}else{
+	    		console.log(clickArr[4]);
+	    			aClick = document.querySelector('.'+ clickArr[clickArr.length-1]);	
+	    	}
     	}
     	if(aClick != null){ 		
     		aClick.classList.add('click'); 

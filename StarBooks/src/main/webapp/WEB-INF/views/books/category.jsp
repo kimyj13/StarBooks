@@ -6,7 +6,7 @@
 <%@ include file="leftCategory.jsp" %>
 	<article class="right-content">
 		<div class="contentWrap">
-			<h2>소설전체</h2>
+			<h2>${category } 전체</h2>
 			<div class="tab-category">
 				<ul class="clearfix">
 					<li class="tm on" title="1">홈</li>
@@ -20,7 +20,7 @@
 				<div class="cont1 view">
 					<div style="margin-bottom : 20px;">
 						<div class="clearfix" style="margin-bottom : 20px;">
-							<h2 style="display: inline-block; ">소설 인기 신간</h2>
+							<h2 style="display: inline-block; ">${category } 인기 신간</h2>
 							<span style="display : inline-block; width : 500px; height : 1px; background : #666;"></span>
 							<button style="display: inline-block; float : right; margin-right : 10px; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
 						</div>
@@ -35,7 +35,7 @@
 					
 					<div style="margin-bottom : 20px;">
 						<div class="clearfix" style="margin-bottom : 20px;">
-							<h2 style="display: inline-block;">소설 베스트셀러</h2>
+							<h2 style="display: inline-block;">${category } 베스트셀러</h2>
 							<span style="display : inline-block; width : 500px;height : 1px; background : #666;"></span>
 							<button style="display: inline-block; float : right; margin-right : 10px; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
 						</div>
@@ -50,7 +50,7 @@
 					
 					<div>
 						<div class="clearfix" style="margin-bottom : 20px;">
-							<h2 style="display: inline-block;">소설 인기 무료책</h2>
+							<h2 style="display: inline-block;">${category } 인기 무료책</h2>
 							<span style="display : inline-block; width : 500px; height : 1px; background : #666;"></span>
 							<button style="display: inline-block; float : right; margin-right : 10px; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
 						</div>
