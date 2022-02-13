@@ -9,4 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BookController {
 	@GetMapping("/list")
 	public void list() {}
+	
+	@GetMapping("/category")
+	public void category() {}
 }

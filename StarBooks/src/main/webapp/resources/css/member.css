@@ -142,3 +142,38 @@ p.alt {
 	margin-left : 10px;
 	color : #808991; font-size : 13px;
 }
+
+/* checkbox - 이용약관 */
+div.chkWrap {
+	width : 400px; 
+	height : 205px; 
+	margin : 10px 0; 
+	padding : 10px;
+	background-color:white;
+	 border : 1px solid rgb(214, 222, 235);
+}
+/* div.chkWrap > button  {
+	height : 30px;
+	line-height: 30px;
+	margin : 0;
+	border : none;
+} */
+div.chkWrap  > h2 {
+	width : 100%;
+	margin-left : 15px;
+	color: rgb(115, 128, 150);
+}
+div.chkWrap > div.chkbox {
+	width : 100%;
+	padding : 5px 20px;
+}
+div.chkWrap > div.chkbox  > p {
+	font-size : 16px;
+	height: 35px;
+    color: rgb(115, 128, 150);
+}
+div.chkWrap > div.chkbox  > p > input[type="checkbox"] {
+	width : 20px;
+	height : 20px;
+	margin-right: 10px;
+}

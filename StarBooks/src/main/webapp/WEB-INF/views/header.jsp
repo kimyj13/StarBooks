@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${cpath }/resources/css/index.css">
 <link rel="stylesheet" href="${cpath }/resources/css/order.css">
 <link rel="stylesheet" href="${cpath }/resources/css/books.css">
+<link rel="stylesheet" href="${cpath }/resources/css/category.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <!-- <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> 
