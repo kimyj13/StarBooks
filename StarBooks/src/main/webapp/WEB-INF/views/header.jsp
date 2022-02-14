@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="${cpath }/resources/css/order.css">
 <link rel="stylesheet" href="${cpath }/resources/css/books.css">
 <link rel="stylesheet" href="${cpath }/resources/css/category.css">
+<link rel="stylesheet" href="${cpath }/resources/css/search.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <!-- <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> 
@@ -24,7 +25,7 @@
        <div class="header-top clearfix">
             <div style="width : 200px; padding-left: 30px;"><h1 id="logo">STARBOOKS</h1></div>
             <div id="searchWrap">
-                <form id="search">
+                <form id="search" action="${cpath }/search">
                    <p>
                     <input type="text" name="search" placeholder="제목, 저자, 출판사 검색">
                     <input type="submit" value="검색">
@@ -70,11 +71,12 @@
 	          </li>
           </ul>
     </header>
+    <!-- header-menu 클릭 -->
     <script>
     	const clickPath = document.location.href;
     	const clickArr = clickPath.split('/');
     	let aClick;
-    	if(clickArr[4] != "books"){    			
+    	if(clickArr[4] != "books" || clickArr[4] !=  "search"){    			
 	    	if(clickArr[clickArr.length-1] == ""){
 	    		aClick = document.querySelector('.home')
 	    	}else{
@@ -104,9 +106,23 @@
     
     </script>
     
+    <!-- search 검색-->
+    <script type="text/javascript">
+    const searchForm = document.getElementById('search');
+    searchForm.onsubmit = function(e){
+    	e.preventDefault();
+    	const search = document.querySelector('input[name="search"]');
+    	console.log(search.value);
+    	location.href='${cpath}/search/'+ search.value;
+    }
+    </script>
+    
+    <!-- logo클릭 -->
     <script type="text/javascript">
     const h1 = document.querySelector('h1');
     h1.onclick=function(){
     	location.href='${cpath}/';
     }
     </script>
+    
+    

@@ -21,7 +21,7 @@
 					<div style="margin-bottom : 20px;">
 						<div class="clearfix" style="margin-bottom : 20px;">
 							<h2 style="display: inline-block; ">${category } 인기 신간</h2>
-							<span style="display : inline-block; width : 500px; height : 1px; background : #666;"></span>
+							<span style="display : inline-block; width : 400px; height : 1px; background : #666;"></span>
 							<button style="display: inline-block; float : right; margin-right : 10px; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
 						</div>
 						<div class="book-grid" style="display : grid; grid : repeat(2, 50%)/auto-flow 20%;grid-row-gap: 10px;">
@@ -36,7 +36,7 @@
 					<div style="margin-bottom : 20px;">
 						<div class="clearfix" style="margin-bottom : 20px;">
 							<h2 style="display: inline-block;">${category } 베스트셀러</h2>
-							<span style="display : inline-block; width : 500px;height : 1px; background : #666;"></span>
+							<span style="display : inline-block; width : 400px;height : 1px; background : #666;"></span>
 							<button style="display: inline-block; float : right; margin-right : 10px; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
 						</div>
 						<div class="book-grid" style="display : grid; grid : repeat(1, 100%)/auto-flow 20%;">
@@ -51,7 +51,7 @@
 					<div>
 						<div class="clearfix" style="margin-bottom : 20px;">
 							<h2 style="display: inline-block;">${category } 인기 무료책</h2>
-							<span style="display : inline-block; width : 500px; height : 1px; background : #666;"></span>
+							<span style="display : inline-block; width : 400px; height : 1px; background : #666;"></span>
 							<button style="display: inline-block; float : right; margin-right : 10px; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
 						</div>
 						<div class="book-grid" style="display : grid; grid : repeat(1, 100%)/auto-flow 20%;">
@@ -112,10 +112,10 @@
 	const tabMenu = document.querySelectorAll('.tm');
 	
 	tabMenu.forEach(tabMenu=>tabMenu.onclick=function(e){
-		const tm = document.querySelector('.on');
+		const tm = document.querySelector('.tab-category > ul > li.on');
 		tm.classList.remove('on');
 		e.target.classList.add('on');
-		const view = document.querySelector('.view');
+		const view = document.querySelector('.tab-content > .view');
 		const title = e.target.title;
 		const tabCont = document.querySelector('.cont'+title);
 		view.classList.remove('view');
