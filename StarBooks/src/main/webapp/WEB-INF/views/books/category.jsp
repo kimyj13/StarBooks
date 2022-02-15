@@ -18,11 +18,12 @@
 			</div>
 			<div class="tab-content">
 				<div class="cont1 view">
-					<div style="margin-bottom : 20px;">
-						<div class="clearfix" style="margin-bottom : 20px;">
-							<h2 style="display: inline-block; ">${category } 인기 신간</h2>
-							<span style="display : inline-block; width : 400px; height : 1px; background : #666;"></span>
-							<button style="display: inline-block; float : right; margin-right : 10px; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
+					<div style="margin-bottom : 50px;">
+						<div class="sub-category clearfix">
+							<h2>${category } 인기 신간</h2>
+							<div class="btn-wrap">
+								<button style="display: inline-block; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
+							</div>
 						</div>
 						<div class="book-grid" style="display : grid; grid : repeat(2, 50%)/auto-flow 20%;grid-row-gap: 10px;">
 							<c:forEach var="book" begin="1" end="10" >
@@ -33,11 +34,12 @@
 						</div>
 					</div>
 					
-					<div style="margin-bottom : 20px;">
-						<div class="clearfix" style="margin-bottom : 20px;">
+					<div style="margin-bottom : 50px;">
+						<div class="sub-category clearfix" >
 							<h2 style="display: inline-block;">${category } 베스트셀러</h2>
-							<span style="display : inline-block; width : 400px;height : 1px; background : #666;"></span>
-							<button style="display: inline-block; float : right; margin-right : 10px; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
+							<div class="btn-wrap">
+								<button style="display: inline-block; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
+							</div>						
 						</div>
 						<div class="book-grid" style="display : grid; grid : repeat(1, 100%)/auto-flow 20%;">
 							<c:forEach var="book" begin="1" end="5" >
@@ -49,11 +51,12 @@
 					</div>
 					
 					<div>
-						<div class="clearfix" style="margin-bottom : 20px;">
+						<div  class="sub-category clearfix">
 							<h2 style="display: inline-block;">${category } 인기 무료책</h2>
-							<span style="display : inline-block; width : 400px; height : 1px; background : #666;"></span>
-							<button style="display: inline-block; float : right; margin-right : 10px; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
-						</div>
+							<div class="btn-wrap">
+								<button style="display: inline-block; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
+							</div>
+							</div>
 						<div class="book-grid" style="display : grid; grid : repeat(1, 100%)/auto-flow 20%;">
 							<c:forEach var="book" begin="1" end="5" >
 								<div style=" width : 150px; height : 200px; margin : 0 auto; border : 1px dashed coral">

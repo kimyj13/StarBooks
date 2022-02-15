@@ -116,3 +116,37 @@ article.right-content > div.contentWrap > div.tab-content > div {
 article.right-content > div.contentWrap > div.tab-content > div.view {
 	display: block;
 }
+
+div.sub-category {
+	position : relative;
+	width : 100%;
+	margin-bottom : 20px;
+}
+div.sub-category:before {
+    position: absolute;
+    display: block;
+	content: '';
+    width: 100%;
+    height: 2px;
+    background: #e5e5e5;
+    left: 0;
+    top: 50%;
+    margin-top: -3px;
+    z-index: 1;
+}
+div.sub-category > h2 {
+	position : relative;
+	left : 0;
+	bottom : 0;
+	padding: 0 10px 5px 0px;
+	display: inline-block; 
+	background: white;
+	z-index : 5;
+}
+div.sub-category > div.btn-wrap {
+	position : relative;
+	float : right;
+	padding-left : 15px; 
+	background : white;
+	z-index : 5;
+}
