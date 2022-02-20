@@ -24,18 +24,15 @@
 					<div class="stCont${i } ${i == 0 ? 'view' : '' }">
 						<h2>목록 ${i }</h2>
 						<ul>
-						<c:forEach var="j" begin="0" end="15">
+						<c:forEach var="j" begin="0" end="15" items="${bookjson }">
 							<li>
 								<div class="clearfix">
-									<img>
+									<img src="${j.image }">
 									<div>
-									<h4>책제목입니다. ${j }</h4>
-									<p>출판사 ${j } || 작가 : OOO || 출판년도 : OOOO년</p>
+									<h4>${j.title }</h4>
+									<p>작가 : ${j.author} || 출판사 : OOO || 출판일자 : ${j.pubdate }</p>
 									<p> 
-										${j } 책에 대한 간단한 소개내용이 어쩌고 저쩌고 할말도 많구나...
-										밥은 먹고 다니냐? 너무 잘먹어서 탈이구나,
-										적을 말이 더 없는데 어쩌져?
-										어쩌긴 그냥 아무말이나 적어라.
+										${j.description } 
 									</p>
 									</div>
 								</div>
@@ -54,9 +51,9 @@
 </section>
 
 <script type="text/javascript">
-const bks= "${bookjson}"
+/* const bks= "${bookjson}"
 const books = JSON.parse(bks);
-console.log (books)
+console.log (books) */
 const stabMenu = document.querySelectorAll('.stm');
 
 stabMenu.forEach(stabMenu=>stabMenu.onclick=function(e){

@@ -76,7 +76,7 @@
     	const clickPath = document.location.href;
     	const clickArr = clickPath.split('/');
     	let aClick;
-    	if(clickArr[4] != "books" || clickArr[4] !=  "search"){    			
+    	if(clickArr[4] != "books" && clickArr[4] !=  "search"){    			
 	    	if(clickArr[clickArr.length-1] == ""){
 	    		aClick = document.querySelector('.home')
 	    	}else{

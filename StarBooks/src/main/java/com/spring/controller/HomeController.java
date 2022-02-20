@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.service.Book;
+import com.spring.service.BookService;
 import com.spring.service.StarBooksService;
 
 @Controller
 public class HomeController {
 	@Autowired private StarBooksService sbs;
-	@Autowired private Book book;
+	@Autowired private BookService book;
 	
 	@GetMapping({"", "/"})
 	public ModelAndView index() {
