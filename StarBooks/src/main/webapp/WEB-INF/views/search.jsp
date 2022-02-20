@@ -54,6 +54,9 @@
 </section>
 
 <script type="text/javascript">
+const bks= "${bookjson}"
+const books = JSON.parse(bks);
+console.log (books)
 const stabMenu = document.querySelectorAll('.stm');
 
 stabMenu.forEach(stabMenu=>stabMenu.onclick=function(e){
