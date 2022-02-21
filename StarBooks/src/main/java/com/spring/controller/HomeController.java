@@ -1,11 +1,14 @@
 package com.spring.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.model.BookDTO;
 import com.spring.service.BookService;
 import com.spring.service.StarBooksService;
 
@@ -25,16 +28,16 @@ public class HomeController {
 	
 	@GetMapping("/search/{search}")
 	public ModelAndView search(@PathVariable String search) {
-		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("search");
-		
-		
-		
-		
-		
-		mav.addObject("search", search);
-		mav.addObject("bookjson", book.search(search));
+		ModelAndView mav = new ModelAndView();	
+		mav.setViewName("search");		
+		mav.addObject("search", search);						// 검색 단어		
+		List<BookDTO> list = book.search(search);
+		System.out.println("home list : " + list + (list == null ? " / null" : " / not null"));
+		if(list != null) {
+			mav.addObject("bookjson", list);		// 검색 결과
+			mav.addObject("count", list.get(0).getCount());		// 검색 결과 수
+//			System.out.println("homeController count : " + list.get(0).getCount());
+		}
 		return mav;
 	}
 }

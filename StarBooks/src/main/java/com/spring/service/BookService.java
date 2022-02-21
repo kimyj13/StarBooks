@@ -68,9 +68,10 @@ public class BookService {
 //	}
 	
 	public ArrayList<BookDTO> search(@RequestParam(value="Query") String Query)  {
+		ArrayList<BookDTO> array = null;
 		try {
 			String query = URLEncoder.encode(Query,"UTF-8");
-			 URL url = new URL(urladdr1+"query="+query);
+			 URL url = new URL(urladdr1+"query="+query + "&display=15");			// 한페이지에 보이는 목록 수 : 15
 			 HttpsURLConnection con= (HttpsURLConnection) url.openConnection();
 			con.setDoOutput(true);
 			con.setRequestMethod("GET");
@@ -86,54 +87,55 @@ public class BookService {
 		          response.append(readline);
 		      }
 		      br.close();
-	      con.disconnect();
-	      System.out.println(response.toString());
-//	      System.out.println(xmlToJson(response.toString()));
-	      DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-	      DocumentBuilder db = dbf.newDocumentBuilder();
-	      Document doc = db.parse(new InputSource(new StringReader(response.toString())));
-	      doc.getDocumentElement().normalize();
-	      System.out.println("root : " + doc.getDocumentElement().getNodeName());
-	      
-	      //파싱할 태그
-	      NodeList nlist = doc.getElementsByTagName("item");
-	      NodeList total = doc.getElementsByTagName("total");
-	      System.out.println("전체 결과 : " + total.item(0).getTextContent());
-	      ArrayList<BookDTO> array = new ArrayList<BookDTO>();
-	      for(int i= 0; i < nlist.getLength(); i++) {
-	    	  BookDTO dto = new BookDTO();
-	    	  Node node = nlist.item(i);
-	    	  
-	    	  if(node.getNodeType() == Node.ELEMENT_NODE) {
-	    		Element element = (Element) node;
-//	    		System.out.println("------------------------------");
-	    		System.out.println("제목  : " + getTagValue("title", element));
-				System.out.println("저자  : " + getTagValue("author", element));
-				dto.setAuthor(getTagValue("author", element));
-				dto.setDescription(getTagValue("description", element));
-				dto.setDiscount(Integer.parseInt(getTagValue("discount", element)));
-				dto.setImage(getTagValue("image", element));
-				dto.setIsbn(getTagValue("isbn", element));
-				dto.setLink(getTagValue("link", element));
-				dto.setPrice(Integer.parseInt( getTagValue("price", element)));
-				dto.setPubdate(getTagValue("pubdate", element));
-				dto.setTitle(getTagValue("title", element));
-	    	  }
-	    	  array.add(dto);
+		      con.disconnect();
+		      System.out.println(response.toString());
+		      
+		      DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		      DocumentBuilder db = dbf.newDocumentBuilder();
+		      Document doc = db.parse(new InputSource(new StringReader(response.toString())));
+		      doc.getDocumentElement().normalize();
+		      System.out.println("root : " + doc.getDocumentElement().getNodeName());
+		      
+		      //파싱할 태그
+		      NodeList nlist = doc.getElementsByTagName("item");
+		      NodeList total = doc.getElementsByTagName("total");
+		      System.out.println("전체 결과 : " + total.item(0).getTextContent());
+		      int count = Integer.parseInt(total.item(0).getTextContent());
+		      array = new ArrayList<BookDTO>();
+		      if(count != 0) {
+		      for(int i= 0; i < nlist.getLength(); i++) {
+		    	  BookDTO dto = new BookDTO();
+		    	  Node node = nlist.item(i);
+		    	  
+		    	  if(node.getNodeType() == Node.ELEMENT_NODE) {
+		    		Element element = (Element) node;
+	//	    		System.out.println("제목  : " + getTagValue("title", element));
+	//				System.out.println("저자  : " + getTagValue("author", element));
+					dto.setAuthor(getTagValue("author", element));
+					dto.setDescription(getTagValue("description", element));
+					dto.setPublisher(getTagValue("publisher",element));
+//					dto.setDiscount(Integer.parseInt(getTagValue("discount", element)));			// 없는 경우가 종종 있어서 따로 처리 해주던지, 일단 제외
+					dto.setImage(getTagValue("image", element));
+					dto.setIsbn(getTagValue("isbn", element));
+					dto.setLink(getTagValue("link", element));
+					dto.setPrice(Integer.parseInt( getTagValue("price", element)));
+					dto.setPubdate(getTagValue("pubdate", element));
+					dto.setTitle(getTagValue("title", element));
+					dto.setCount(count);
+		    	  }
+		    	  array.add(dto);
+		      }
+		      return array;
 	      }
-	     return array;
-//	      return xmlToJson(response.toString());
 	      
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return null;		
 	}
 	

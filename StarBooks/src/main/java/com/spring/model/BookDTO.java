@@ -1,8 +1,9 @@
 package com.spring.model;
 
 public class BookDTO {
-	String title, link, image, author, isbn, description, pubdate;
-	int price, discount;
+	private String title, link, image, author, isbn, description, publisher,pubdate;
+	private int price, discount, count;
+	
 	public String getTitle() {
 		return title;
 	}
@@ -39,6 +40,12 @@ public class BookDTO {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public String getPublisher() {
+		return publisher;
+	}
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
 	public String getPubdate() {
 		return pubdate;
 	}
@@ -57,6 +64,11 @@ public class BookDTO {
 	public void setDiscount(int discount) {
 		this.discount = discount;
 	}
-	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	
 }
