@@ -27,6 +27,12 @@ section {
 	margin : 0 auto; 
 	/* border : 1px solid gray; */
 }
+section > h1 {
+	margin-left: 5%;
+	text-decoration: underline;
+	text-underline-position: under;     /* 언더라인이 좀 더 밑에 생성 */
+	margin-bottom : 10px;
+}
 button{
     margin-left: 7px;
     padding : 5px 15px;
@@ -361,7 +367,7 @@ ul.grid {
 	grid-template-rows:  33% 33% 33%; */
 }
 ul.grid > li {
-	border : 1px dashed coral;
+/* 	border : 1px dashed coral; */
 	padding : 10px 5px;
 }
 ul.grid > li > div {
@@ -370,22 +376,26 @@ ul.grid > li > div {
 ul.grid > li > div:first-child {
 	width : 30%;
 	height : 100%;
-	border-right : 1px solid skyblue;
+	border-right : 2px solid skyblue;
 }
 ul.grid > li > div:last-child {
 	width : 70%;
+	height: 100%;
+	padding : 25px 0;
 }
+
 ul.grid > li > div:last-child > h3, ul.grid > li > div:last-child > div {
 	float : left;
 }
 ul.grid > li > div:last-child > h3 {
 	width : 18%;
-	line-height: 108px;
+	line-height: 70px;
 	text-align: center;
+	border-right : 1px dashed skyblue;
 }
 ul.grid > li > div:last-child > div {
 	width : 82%;
-	padding : 20px 5px;
+	padding : 5px;
 }
 
 /* 화면 너비에 따른 구성*/
@@ -466,7 +476,7 @@ ul.grid {
 	grid-column-gap: 7px;
 }
 ul.grid > li {
-	border : 1px dashed coral;
+/* 	border : 1px dashed coral; */
 	padding : 5px;
 }
 }
@@ -486,12 +496,12 @@ section#NewBookSlide > article.new-book-slide {
 	width : 70%; 
 	margin : 0 auto; 
 	padding : 10px; 
-	border : 1px dashed skyblue;
+/* 	border : 1px dashed skyblue; */
 }
 article.new-book-slide div.slick-slide {
     margin : 0 10px;
     height : 300px; 
-    border: 1px solid lightskyblue
+/*     border: 1px solid lightskyblue */
 }
         
 article.new-book-slide .slick-dots {

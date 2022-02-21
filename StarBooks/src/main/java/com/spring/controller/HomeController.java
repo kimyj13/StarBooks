@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.model.BookDTO;
+import com.spring.model.StarBookDTO;
 import com.spring.service.BookService;
 import com.spring.service.StarBooksService;
 
@@ -20,8 +21,25 @@ public class HomeController {
 	@GetMapping({"", "/"})
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
-		String time = sbs.testDB();
-		mav.addObject("time", time);
+//		String time = sbs.testDB();
+//		mav.addObject("time", time);
+		
+		List<StarBookDTO> best  = sbs.bestSeller();
+		if(best!=null) {
+			mav.addObject("best", best);
+		}
+		List<StarBookDTO> newBook  =sbs.newBook();
+		if(newBook != null) {
+			mav.addObject("newBook", newBook);
+		}
+		List<StarBookDTO> recommend  =sbs.recommend();
+		if(recommend != null) {
+			mav.addObject("recommend", recommend);
+		}
+		List<StarBookDTO> history  =sbs.history();
+		if(history != null) {
+			mav.addObject("history", history);
+		}
 		mav.setViewName("index");
 		return mav;
 	}
