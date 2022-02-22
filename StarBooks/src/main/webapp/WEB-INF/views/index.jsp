@@ -4,8 +4,8 @@
 
 
 <%@ include file="slider.jsp" %>
-    <section id="NewBookSlide">
-        <h1 style="width : 70%; margin : 0 auto;">신간도서</h1>
+    <section id="NewBookSlide"  style="margin-bottom : 70px;">
+        <h1 style="width : 70%; margin : 0 auto; cursor: pointer;"  onclick="location.href='${cpath}/books/newBook'" title="신간도서 더보기">신간도서</h1>
         <article class="new-book-slide">
         		<c:if test="${not empty newBook}">
         	<c:forEach var="newBook" items="${newBook }" begin="7" end="26">
@@ -59,7 +59,7 @@
     });
   </script>
     
-    <section id="week-bestWrap" style="margin-bottom : 50px;">
+    <section id="week-bestWrap" style="margin-bottom : 70px;">
         <h1>MD픽! 추천 도서</h1>
         <div class="cont2" style="width : 80%; margin : 0 auto;">
 					<div class="book-grid" style="display : grid; grid : repeat(1, 100%)/auto-flow 25%;grid-row-gap: 10px;">
@@ -76,8 +76,8 @@
 				</div>
     </section>
     
-    <section id="bestWrap"  style="margin-bottom : 50px;">
-    <h1>베스트셀러</h1>
+    <section id="bestWrap"  style="margin-bottom : 70px;">
+    <h1 onclick="location.href='${cpath}/books/bestSeller'" title="베스트셀러 더보기" style="cursor: pointer;">베스트셀러</h1>
     	<div class="week">
     		<ul  class="grid">
     		<c:forEach var="best" items="${best }" begin="0" end="8">
@@ -98,7 +98,7 @@
     	</div>
     </section>
     
-     <section id="week-bestWrap" style="margin-bottom : 50px;">
+     <section id="week-bestWrap" style="margin-bottom : 70px;">
         <h1>역사 기행! 추천도서</h1>
        <div class="week">
     		<ul  class="grid">
@@ -121,7 +121,7 @@
     </section>
     
     
-    <section id="TabWrap">
+<!--     <section id="TabWrap">
         <div>
             <div id="tabBtn">
                 <ul class="clearfix">
@@ -136,6 +136,6 @@
                 <div id="tabCont3">cont3</div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 <%@ include file="footer.jsp" %>

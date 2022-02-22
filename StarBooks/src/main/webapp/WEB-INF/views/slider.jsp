@@ -59,8 +59,8 @@
 <section id="iconMenu">
 	<article class="iconWrap">
 		<ul class="clearfix">
-			<li><a href="${cpath }/books/"><div style="background-color : #e8cb99"><i class="xi-new-o xi-3x"></i></div><span>신간</span></a></li>
-			<li><a href="${cpath }/books/"><div style="background-color : #b9bef1"><i class="xi-trophy xi-3x"></i></div><span>베스트셀러</span></a></li>
+			<li><a href="${cpath }/books/newBook"><div style="background-color : #e8cb99"><i class="xi-new-o xi-3x"></i></div><span>신간</span></a></li>
+			<li><a href="${cpath }/books/bestSeller"><div style="background-color : #b9bef1"><i class="xi-trophy xi-3x"></i></div><span>베스트셀러</span></a></li>
 			<li><a href="${cpath }/event/event"><div style="background-color : #99d1cb"><i class="xi-gift-o xi-3x"></i></div><span>이벤트</span></a></li>
 			<li><a href="${cpath }/books/"><div style="background-color : #f0b9b9"><i class="xi-library-bookmark xi-3x"></i></div><span>선호작품</span></a></li>
 			<li><a href="${cpath }/books/"><div style="background-color : #99c0e1"><i class="xi-rotate-right xi-3x"></i></div><span>기다리면무료</span></a></li>
