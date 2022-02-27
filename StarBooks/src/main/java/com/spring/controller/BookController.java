@@ -62,4 +62,13 @@ public class BookController {
 		mav.addObject("newBook", dto);
 		return mav;
 	}
+	
+	@GetMapping("/weekPick/{num}")
+	public ModelAndView weekPick(@PathVariable int num) {
+		ModelAndView mav = new ModelAndView();
+		List<StarBookDTO> dto = sbs.weekPick(num);
+		mav.setViewName("books/weekPick");
+		mav.addObject("weekPick", dto);
+		return mav;
+	}
 }

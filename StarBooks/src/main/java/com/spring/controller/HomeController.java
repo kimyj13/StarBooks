@@ -36,7 +36,7 @@ public class HomeController {
 		if(recommend != null) {
 			mav.addObject("recommend", recommend);
 		}
-		List<StarBookDTO> history  =sbs.history();
+		List<StarBookDTO> history  =sbs.weekPick(105);
 		if(history != null) {
 			mav.addObject("history", history);
 		}

@@ -4,18 +4,19 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -114,15 +115,41 @@ public class MemberController {
 	@GetMapping("/findid")
 	public void findid() {}
 	
-	@PostMapping("/findid")
-	public ModelAndView findid(MemberDTO dto) {
+	@Autowired JavaMailSender sender;
+//	@PostMapping("/findid")
+	@RequestMapping(value="/findid", method = RequestMethod.POST)
+	public ModelAndView findid(HttpServletRequest request, MemberDTO dto) {
+		
+	
+		
 		ModelAndView mav = new ModelAndView("member/findid");
 		StringBuffer format = new StringBuffer();
 		String id = ms.findId(dto);
+		
 		if(id == null) {
 			mav.addObject("msg", null);
 			return mav;
 		}
+		
+		// id 찾기시 email 발송을 위한 코드
+//		String text = "고객님의 ID는 " + id + "입니다.";
+//		try {
+//			MimeMessage mime = sender.createMimeMessage();
+//			MimeMessageHelper helper = new MimeMessageHelper(mime, true, "UTF-8");
+//			
+//			helper.setFrom("crasiel@naver.com");		// 보내는 사람
+//			helper.setTo("crasiel@naver.com");							// 받는 사람
+//			
+//			helper.setSubject("[STARBOOKS] ID 찾기 메일 발송합니다.");			// 메일 제목
+//			helper.setText(text); 						// 메일 내용
+//			 sender.send(mime);
+//			
+//		} catch (MessagingException e) {
+//			e.printStackTrace();
+//			mav.addObject("msg", "일시적인 오류가 발생했습니다. 잠시후 다시 시도해 주세요.");
+//		}
+		
+		// jsp 화면 띄우기
 		format.append(id);
 		String star="";
 		for(int i=2; i < format.length()-2; i++)star+="*";

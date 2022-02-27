@@ -44,8 +44,8 @@ public class StarBooksService {
 		return getList(url, 0);
 	}
 	
-	public List<StarBookDTO> history() {						// 역사 베스트셀러
-		String url = "http://book.interpark.com/api/bestSeller.api?key=" + key +"&categoryId=105&output=xml";
+	public List<StarBookDTO> weekPick(int num) {						// 역사 베스트셀러
+		String url = "http://book.interpark.com/api/bestSeller.api?key=" + key +"&categoryId=" + num + "&output=xml";
 		return getList(url, 1);
 	}
 	
