@@ -17,7 +17,7 @@
 						<li><a href="${cpath }/books/category/100010080?str=소설" >기타국가소설</a></li>
 					</ul>
 				</li>
-				<li class="main-category ct200"><a href="${cpath }/books/category/160?str=경영">경영/경제</a>
+				<li class="main-category ct160"><a href="${cpath }/books/category/160?str=경영">경영/경제</a>
 					<ul class="sub-category" >
 						<li><a href="${cpath }/books/category/160?str=경영"">경영일반</a></li>
 						<li><a href="${cpath }/books/category/160?str=경제"">경제일반</a></li>
@@ -26,7 +26,7 @@
 						<li><a href="${cpath }/books/category/160050?str=창업">창업</a></li>
 					</ul>
 				</li>
-				<li class="main-category ct400"><a href="${cpath }/books/category/180?str=사회">사회</a>
+				<li class="main-category ct180"><a href="${cpath }/books/category/180?str=사회">사회</a>
 					<ul class="sub-category" >
 						<li><a href="${cpath }/books/category/180010?str=정치">정치/외교</a></li>
 						<li><a href="${cpath }/books/category/180020?str=행정">행정/정책</a></li>
@@ -35,7 +35,7 @@
 						<li><a href="${cpath }/books/category/180050?str=사회학">사회학</a></li>
 					</ul>
 				</li>
-				<li class="main-category ct300"><a href="${cpath }/books/category/170?str=자기계발">자기계발</a>
+				<li class="main-category ct170"><a href="${cpath }/books/category/170?str=자기계발">자기계발</a>
 					<ul class="sub-category" >
 						<li><a href="${cpath }/books/category/170?str=자기계발">자기계발 전체</a></li>
 						<li><a href="${cpath }/books/category/170010?str=성공">성공/처세</a></li>
@@ -46,7 +46,7 @@
 					</ul>
 				</li>
 				
-				<li class="main-category ct1000"><a href="${cpath }/books/category/230?str=국어">국어/외국어</a>
+				<li class="main-category ct230"><a href="${cpath }/books/category/230?str=국어">국어/외국어</a>
 					<ul class="sub-category" >
 						<li><a href="${cpath }/books/category/230010?str=국어">국어</a></li>
 						<li><a href="${cpath }/books/category/230020?str=영어">영어</a></li>
@@ -55,7 +55,7 @@
 						<li><a href="${cpath }/books/category/230050?str=기타외국어">기타외국어</a></li>
 					</ul>
 				</li>
-				<li class="main-category ct1100"><a href="${cpath }/books/category/250?str=과학">과학</a>
+				<li class="main-category ct250"><a href="${cpath }/books/category/250?str=과학">과학</a>
 					<ul class="sub-category" >
 						<li><a href="${cpath }/books/category/250?str=과학">과학 전체</a></li>
 						<li><a href="${cpath }/books/category/250?str=과학일반">과학일반</a></li>
@@ -64,7 +64,7 @@
 						<li><a href="${cpath }/books/category/250?str=응용과학">응용과학</a></li>
 					</ul>
 				</li>			
-				<li class="main-category ct2200"><a href="${cpath }/books/category/280?str=컴퓨터">컴퓨터/IT</a>
+				<li class="main-category ct280"><a href="${cpath }/books/category/280?str=컴퓨터">컴퓨터/IT</a>
 					<ul class="sub-category" >
 						<li><a href="${cpath }/books/category/280?str=컴퓨터">컴퓨터/IT 전체</a></li>
 						<li><a href="${cpath }/books/category/280010?str=웹/컴퓨터입문/활용">웹/컴퓨터입문/활용</a></li>
@@ -81,14 +81,14 @@
 						<li><a href="${cpath }/books/category/110?str=시">시</a></li>
 					</ul>
 				</li>
-				<li class="main-category ct800"><a href="${cpath }/books/category/270?str=여행">여행</a>
+				<li class="main-category ct270"><a href="${cpath }/books/category/270?str=여행">여행</a>
 					<ul class="sub-category" >
 						<li><a href="${cpath }/books/category/270?str=여행">여행 전체</a></li>
 						<li><a href="${cpath }/books/category/270010?str=국내여행">국내여행</a></li>
 						<li><a href="${cpath }/books/category/270020?str=해외여행">해외여행</a></li>
 					</ul>
 				</li>
-				<li class="main-category ct700"><a href="${cpath }/books/category/200?str=종교">종교</a>
+				<li class="main-category ct200"><a href="${cpath }/books/category/200?str=종교">종교</a>
 					<ul class="sub-category" >
 						<li><a href="${cpath }/books/category/200?str=종교">종교 전체</a></li>
 						<li><a href="${cpath }/books/category/200010?str=종교일반">종교일반</a></li>
@@ -106,8 +106,10 @@
 const ctPath = document.location.href;				// book의 주소 
 const ctClickArr = clickPath.split('/');				// 주소를 배열로 저장
 const num = ctClickArr[ctClickArr.length-1];		//	 배열의 마지막 -> 분류번호 -> li style적용 등 활용
-console.log(num);
-const ctLi = document.querySelector('.ct'+ num);		// 주소에 해당되는 목록 
+const num1 = num.substring(0,3);
+console.log(num1);
+
+const ctLi = document.querySelector('.ct'+ num1);		// 주소에 해당되는 목록 
 ctLi.classList.add('cateOn');										// (초기화) -> style을 적용할 class 붙여주기
 const li = document.querySelectorAll('.main-category');		// 다른 목록을 선택시
 li.forEach(li=>li.onclick=function(e){
