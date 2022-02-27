@@ -1,5 +1,6 @@
 package com.spring.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,9 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.model.BookDTO;
 import com.spring.model.StarBookDTO;
+import com.spring.service.BookService;
 import com.spring.service.StarBooksService;
 
 @Controller
@@ -18,30 +22,22 @@ import com.spring.service.StarBooksService;
 public class BookController {
 	
 	@Autowired private StarBooksService sbs;
+	@Autowired private BookService bs;
 	
 	@GetMapping("/list")
 	public void list() {}
 	
 	@GetMapping("/category/{num}")
-	public ModelAndView category(@PathVariable int num) {
+	public ModelAndView category(@PathVariable int num,@RequestParam String str) {
 		ModelAndView mav = new ModelAndView();
-		String str="";
-		switch(num) {
-			case 100: str = "소설";break;
-			case 110: str = "에세이/시";break;
-			case 200: str = "경영/경제";break;
-			case 300: str = "자기계발";break;
-			case 400: str = "인문/사회/역사";break;
-			case 700: str = "종교";break;
-			case 800: str = "여행";break;
-			case 1000: str = "외국어";break;
-			case 1100: str = "과학";break;
-			case 2200: str = "컴퓨터/IT";break;
-			default:str="";
-		}
+	
+		ArrayList<BookDTO>dto = bs.bookList(str, num);
+		ArrayList<BookDTO>cdto = bs.bookListC(str, num);
+		
 		mav.setViewName("books/category");
 		mav.addObject("category", str);
-		
+		mav.addObject("list",dto);
+		mav.addObject("clist", cdto);
 		return mav;
 	}
 	
@@ -62,7 +58,6 @@ public class BookController {
 		mav.addObject("newBook", dto);
 		return mav;
 	}
-	
 	@GetMapping("/weekPick/{num}")
 	public ModelAndView weekPick(@PathVariable int num) {
 		ModelAndView mav = new ModelAndView();
