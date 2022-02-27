@@ -70,7 +70,7 @@ ul.category-menu > li.cateOn > ul.sub-category > li:hover > a {
 	font-weight: 600;
 } 
 
-ul.category-menu > li.cateOn > ul >li:first-child {
+ul.category-menu > li.cateOn > ul >li.cateliOn {
 	color : #1f8ce6;
 	font-weight: 600;
 }
