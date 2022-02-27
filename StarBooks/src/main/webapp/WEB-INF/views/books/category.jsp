@@ -26,9 +26,9 @@
 							</div>
 						</div>
 						<div class="book-grid" style="display : grid; grid : repeat(2, 50%)/auto-flow 20%;grid-row-gap: 10px;">
-							<c:forEach var="book" begin="1" end="10" >
+							<c:forEach var="book" begin="1" end="10" items="${list }" >
 								<div style=" width : 150px; height : 200px; margin : 0 auto; border : 1px dashed coral">
-									<img style="">
+									<img src="${book.image}" style="height: 200px;width: 150px;">
 								</div>
 							</c:forEach>
 						</div>
