@@ -32,10 +32,12 @@ public class BookController {
 		ModelAndView mav = new ModelAndView();
 	
 		ArrayList<BookDTO>dto = bs.bookList(str, num);
+		ArrayList<BookDTO>cdto = bs.bookListC(str, num);
 		
 		mav.setViewName("books/category");
 		mav.addObject("category", str);
 		mav.addObject("list",dto);
+		mav.addObject("clist", cdto);
 		return mav;
 	}
 	

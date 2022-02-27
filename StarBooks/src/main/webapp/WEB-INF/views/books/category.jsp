@@ -42,9 +42,9 @@
 							</div>						
 						</div>
 						<div class="book-grid" style="display : grid; grid : repeat(1, 100%)/auto-flow 20%;">
-							<c:forEach var="book" begin="1" end="5" >
+							<c:forEach var="book" begin="1" end="5" items="${clist }" >
 								<div style=" width : 150px; height : 200px; margin : 0 auto; border : 1px dashed coral">
-									<img style="">
+									<img src="${book.image }" style="height: 200px;width: 150px">
 								</div>
 							</c:forEach>
 						</div>
