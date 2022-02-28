@@ -155,14 +155,40 @@ let birthTest = /[0-9]/;
 	
 	function emailCheck(email){
 		const inputEmail = document.querySelector('input[name="useremail"]');
+		const msg = document.querySelector('.emailCheck');
 		if(!emailTest.test(email)){
-			document.querySelector('.emailCheck').value = "올바른 이메일 형식이 아닙니다.";
+			msg.value= "올바른 이메일 형식이 아닙니다.";
 			inputEmail.setAttribute('class', 'nocheck');
 			flagEmail =false;
 		}else{
-			document.querySelector('.emailCheck').value = "";
-			inputEmail.setAttribute('class','check');	
-			flagEmail = true;
+			
+			const url = '${cpath}/member/join/emailCheck';
+			const opt = {
+					method : 'POST',
+					body : JSON.stringify({email: email}),
+					headers : {
+						'Content-Type' : 'application/json'
+					}
+			}
+			fetch(url, opt)
+			.then(resp=>resp.text())
+			.then(text=>{
+				msg.value = text;
+				const flag = text == '사용가능한 email 입니다.';
+				flag ? msg.style.color = 'green': msg.style.color='red';
+				flag ? inputEmail.style.borderColor = 'green': inputEmail.style.borderColor = 'red';
+				if(flag == false){
+					inputEmail.focus();
+					flagEmail =false;
+				}else{		
+					msg.style.color = 'green';
+					inputEmail.classList.remove('nocheck');
+					inputEmail.classList.add('check');
+					flagEmail = true;
+				}
+			
+		});
+			
 		}
 	}
 	

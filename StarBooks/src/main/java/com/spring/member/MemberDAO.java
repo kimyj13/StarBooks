@@ -22,4 +22,7 @@ public interface MemberDAO {
 	@Select("select count(*) from member where userid=#{id}")
 	int idCheck(String id);
 
+	@Select("select count(*) from member where useremail=#{email}")
+	int emailCheck(String email);
+
 }

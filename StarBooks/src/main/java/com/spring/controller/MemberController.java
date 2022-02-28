@@ -54,12 +54,22 @@ public class MemberController {
 	
 	@PostMapping(value="/join/idCheck", consumes = "application/json; charset=utf-8", produces = "application/text; charset=utf-8")
 	@ResponseBody
-	public String emailCheck(@RequestBody HashMap<String, String> map) {
+	public String idCheck(@RequestBody HashMap<String, String> map) {
 		System.out.println("map : " + map);
 		
 		boolean flag = ms.idCheck(map.get("id"));
 		System.out.println(flag);
 		return flag ? "사용가능한 id 입니다." : "이미 사용중인 id 입니다.";
+	}
+	
+	@PostMapping(value="/join/emailCheck", consumes = "application/json; charset=utf-8", produces = "application/text; charset=utf-8")
+	@ResponseBody
+	public String emailCheck(@RequestBody HashMap<String, String> map) {
+		System.out.println("map : " + map);
+		
+		boolean flag = ms.emailCheck(map.get("email"));
+		System.out.println(flag);
+		return flag ? "사용가능한 email 입니다." : "이미 사용중인 email 입니다.";
 	}
 	
 	@GetMapping("/login")
@@ -137,8 +147,8 @@ public class MemberController {
 //			MimeMessage mime = sender.createMimeMessage();
 //			MimeMessageHelper helper = new MimeMessageHelper(mime, true, "UTF-8");
 //			
-//			helper.setFrom("crasiel@naver.com");		// 보내는 사람
-//			helper.setTo("crasiel@naver.com");							// 받는 사람
+//			helper.setFrom("메일주소");		// 보내는 사람
+//			helper.setTo(dto.getUseremail());							// 받는 사람
 //			
 //			helper.setSubject("[STARBOOKS] ID 찾기 메일 발송합니다.");			// 메일 제목
 //			helper.setText(text); 						// 메일 내용

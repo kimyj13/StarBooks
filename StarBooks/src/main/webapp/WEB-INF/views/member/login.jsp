@@ -17,8 +17,9 @@
 			<a href="${cpath }/member/newpw"  style="font-size : 13px;">비밀번호 재설정</a>
 		</p>
 		<p><input type="submit" value="로그인"></p>
-		<p><button>회원가입</button></p>
 	</form>
+		<p><button onclick="location.href='${cpath}/member/join'">회원가입</button></p>
 </section>
+
 </body>
 </html>

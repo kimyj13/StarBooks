@@ -49,4 +49,9 @@ public class MemberService {
 		int count = dao.idCheck(id);
 		return count == 0;
 	}
+
+	public boolean emailCheck(String email) {
+		int count = dao.emailCheck(email);
+		return count == 0;
+	}
 }
