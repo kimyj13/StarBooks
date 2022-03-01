@@ -33,7 +33,15 @@
 	<c:if test="${pageContext.request.method == 'POST' }">
 		<fieldset style="display: block;width: 500px; margin-top : 20px; padding : 20px;text-align: center;">
 			<c:if test="${not empty newPw }">
-				<h2 style="width : 100%;">새로 발급된 임시 비밀번호는 [${newPw }] 입니다.</h2>
+				<c:if test="${empty alert }">
+					<h2 style="width : 100%;">새로 발급된 임시 비밀번호는 메일로 전송하였습니다.</h2>
+				</c:if>
+				<c:if test="${not empty alert }">
+					<script type="text/javascript">
+						alert('${alert}')
+					</script>
+					<h2 style="width : 100%;">메일 미발송 : 임시 비밀번호는 [ ${newPw } ] 입니다.</h2>				
+				</c:if>
 			</c:if>
 			<c:if test="${empty newPw }">
 			<h2 style="width : 100%;">일치하는 회원정보가 없습니다.</h2>
@@ -44,6 +52,8 @@
 			</c:if>
 			<button onclick="location.href='${cpath}/member/login'">로그인</button>
 		</fieldset>
+		
+		
 	</c:if>
 </section>
 </body>

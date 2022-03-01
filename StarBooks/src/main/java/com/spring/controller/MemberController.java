@@ -125,7 +125,7 @@ public class MemberController {
 	@GetMapping("/findid")
 	public void findid() {}
 	
-	@Autowired JavaMailSender sender;
+	
 //	@PostMapping("/findid")
 	@RequestMapping(value="/findid", method = RequestMethod.POST)
 	public ModelAndView findid(HttpServletRequest request, MemberDTO dto) {
@@ -141,23 +141,13 @@ public class MemberController {
 			return mav;
 		}
 		
-		// id 찾기시 email 발송을 위한 코드
-//		String text = "고객님의 ID는 " + id + "입니다.";
-//		try {
-//			MimeMessage mime = sender.createMimeMessage();
-//			MimeMessageHelper helper = new MimeMessageHelper(mime, true, "UTF-8");
-//			
-//			helper.setFrom("메일주소");		// 보내는 사람
-//			helper.setTo(dto.getUseremail());							// 받는 사람
-//			
-//			helper.setSubject("[STARBOOKS] ID 찾기 메일 발송합니다.");			// 메일 제목
-//			helper.setText(text); 						// 메일 내용
-//			 sender.send(mime);
-//			
-//		} catch (MessagingException e) {
-//			e.printStackTrace();
-//			mav.addObject("msg", "일시적인 오류가 발생했습니다. 잠시후 다시 시도해 주세요.");
-//		}
+		// 메일 발송 관련 코드  
+		boolean sendEmailFlag = ms.sendEmail(dto.getUseremail(),"ID", id);
+		if(sendEmailFlag){}
+		else{
+			mav.addObject("alert", "일시적인 오류로 메일을 발송할 수 없습니다.");
+		}
+		
 		
 		// jsp 화면 띄우기
 		format.append(id);
@@ -177,6 +167,14 @@ public class MemberController {
 	public ModelAndView newpw(MemberDTO dto) {
 		ModelAndView mav = new ModelAndView("member/newpw");
 		String newPw = ms.reNewPw(dto);
+		
+		// 메일 발송 관련 코드 
+		boolean sendEmailFlag = ms.sendEmail(dto.getUseremail(),"비밀번호", newPw);
+		if(sendEmailFlag){}
+		else{
+			mav.addObject("alert", "일시적인 오류로 메일을 발송할 수 없습니다.");
+		}
+		
 		mav.addObject("newPw", newPw);
 		return mav;
 	}

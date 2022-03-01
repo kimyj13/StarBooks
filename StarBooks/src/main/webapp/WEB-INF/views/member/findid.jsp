@@ -40,12 +40,22 @@
 		</c:if>
 		<c:if test="${not empty msg }">
 			<h2 style="width : 100%;">${msg }</h2>
-				<p class="alt">개인정보보호를 위해 중간에 마스킹 처리 했습니다.<br>
-									  전체 아이디는 입력하신 메일 주소로 보내드렸습니다.</p>
+			<p class="alt">개인정보보호를 위해 중간에 마스킹(*) 처리 했습니다.							  
+				<c:if test="${empty alert }">
+				<br>전체 아이디는 입력하신 메일 주소로 보내드렸습니다.
+				</c:if>
+				<c:if test="${not empty alert }">
+					<script type="text/javascript">
+						alert('${alert}')
+					</script>
+				</c:if>
+			</p>	
 				<button onclick="location.href='${cpath }/member/login'">로그인</button>
 				<p class="alt">비밀번호를 잃어버리셨나요? <a href="${cpath }/member/newpw" style="color : #1f8ce6; font-size : 14px; font-weight: bold">비밀번호재발급</a></p>
 			</c:if>
 		</fieldset>
+		
+		
 	</c:if>
 </section>
 </body>

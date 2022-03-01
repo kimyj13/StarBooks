@@ -47,13 +47,13 @@
 	</bean>
 	
 	<!-- mail설정 -->
-	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+<!--	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.naver.com" />
 		<property name="port" value="465" />
 		<property name="username" value="아이디" />
-		<property name="password" value="비밀번호" />
+		<property name="password" value="비밀번호" />   -->
 		<!-- 보안연결 ssl 관련 설정 -->
-		<property name="javaMailProperties">
+<!--		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.smpt.auth">true</prop>
 				<prop key="mail.smtp.starttls.enable">true</prop>
@@ -63,7 +63,7 @@
 				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
 			</props>
 		</property>
-	</bean>
+	</bean>-->
 	
 	<bean id="sqlSessinTemplate" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="close">
 		<constructor-arg ref="sqlSessionFactory" />
