@@ -36,12 +36,12 @@ public class MemberService {
 	}		// 패스워드 Hash 처리
 	
 	public int insertMember(MemberDTO dto) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		//dto.setUserpw(getHash(dto.getUserpw()));		// 패스워드 Hash 처리
+		dto.setUser_pw(getHash(dto.getUser_pw()));		// 패스워드 Hash 처리
 		return dao.insertMember(dto);
 	}
 
 	public MemberDTO loginMember(MemberDTO dto) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		//dto.setUserpw(getHash(dto.getUserpw()));		// 패스워드 Hash 처리
+		dto.setUser_pw(getHash(dto.getUser_pw()));		// 패스워드 Hash 처리
 		return dao.loginMember(dto);
 	}
 
@@ -49,10 +49,10 @@ public class MemberService {
 		return dao.findId(dto);
 	}
 
-	public String reNewPw(MemberDTO dto) {
+	public String reNewPw(MemberDTO dto) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		String newPw = UUID.randomUUID().toString().split("-")[0];
-//		String hashPw = getHash(newPw);		// 패스워드 Hash 처리
-		dto.setUserpw(newPw);
+		String hashPw = getHash(newPw);		// 패스워드 Hash 처리
+		dto.setUser_pw(hashPw);
 		int row = dao.reNewPw(dto);
 		return row == 1? newPw : null;
 	}

@@ -7,8 +7,8 @@
 	<c:set var="checked" value="checked" />
 </c:if>
 	<form id="loginForm" method="POST">
-		<p><input type="text" name="userid" placeholder="아이디(ID)" value="${cookieId}"></p>
-		<p><input type="password" name="userpw" placeholder="비밀번호" style="margin-top : 0; border-bottom : none; border-top : none;"></p>
+		<p><input type="text" name="user_id" placeholder="아이디(ID)" value="${cookieId}"></p>
+		<p><input type="password" name="user_pw" placeholder="비밀번호" style="margin-top : 0; border-bottom : none; border-top : none;"></p>
 		<p style="width : 400px;height : 45px; line-height : 45px; border : 1px solid #d6deeb; background-color : #f7fbff;  color :#303538;  padding-left:10px;">
 			<input type="checkbox" id="idCookie" name="isCookie" value="y" ${checked } style="width : 17px;height : 17px;">
 			<label for="idCheck" style="font-size : 14px;">로그인상태유지</label>

@@ -92,7 +92,7 @@ public class MemberController {
 			session.setMaxInactiveInterval(60*60*3);
 
 			if(dto.getIsCookie() == 'y' ) {			// id저장 체크 - 쿠키생성
-				Cookie cookie = new Cookie("cookieId", dto.getUserid());
+				Cookie cookie = new Cookie("cookieId", dto.getUser_id());
 				cookie.setPath("/");
 				cookie.setMaxAge(60 * 60 * 24 * 3); 		// 3일
 				response.addCookie(cookie);
@@ -104,7 +104,7 @@ public class MemberController {
 			}
 			mav.setViewName("access");
 			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("msg", login.getUserid() + "님 로그인 되었습니다.");
+			map.put("msg", login.getUser_id() + "님 로그인 되었습니다.");
 			map.put("href", "");
 			mav.addObject("map", map);
 			return mav;
@@ -142,7 +142,7 @@ public class MemberController {
 		}
 		
 		// 메일 발송 관련 코드  
-		boolean sendEmailFlag = ms.sendEmail(dto.getUseremail(),"ID", id);
+		boolean sendEmailFlag = ms.sendEmail(dto.getUser_email(),"ID", id);
 		if(sendEmailFlag){}
 		else{
 			mav.addObject("alert", "일시적인 오류로 메일을 발송할 수 없습니다.");
@@ -164,12 +164,12 @@ public class MemberController {
 	public void newpw() {}
 	
 	@PostMapping("/newpw")
-	public ModelAndView newpw(MemberDTO dto) {
+	public ModelAndView newpw(MemberDTO dto) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView("member/newpw");
 		String newPw = ms.reNewPw(dto);
 		
 		// 메일 발송 관련 코드 
-		boolean sendEmailFlag = ms.sendEmail(dto.getUseremail(),"비밀번호", newPw);
+		boolean sendEmailFlag = ms.sendEmail(dto.getUser_email(),"비밀번호", newPw);
 		if(sendEmailFlag){}
 		else{
 			mav.addObject("alert", "일시적인 오류로 메일을 발송할 수 없습니다.");

@@ -7,7 +7,7 @@
 <c:if test="${pageContext.request.method == 'GET' }">
 	<h2>아이디 찾기</h2>
 		<form id="findidForm" method="POST">
-			<p><input type="text" name="useremail" placeholder="이메일 주소"></p>
+			<p><input type="text" name="user_email" placeholder="이메일 주소"></p>
 			<p><input type="submit" value="아이디 찾기"></p>
 		</form>
 		<div>
@@ -18,7 +18,7 @@
 		form.onsubmit = function(e){
 			e.preventDefault();
 			const emailTest = /[A-Za-z0-9_\.\-]+@[A-z-a-z\-]+\.[A-Za-z\-]/;
-			const eCheck = document.querySelector('input[name="useremail"]').value;
+			const eCheck = document.querySelector('input[name="user_email"]').value;
 			if(!emailTest.test(eCheck)){
 				alert('이메일 양식에 맞지 않습니다');
 				return;

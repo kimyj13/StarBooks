@@ -6,23 +6,23 @@ import org.apache.ibatis.annotations.Update;
 
 public interface MemberDAO {
 
-	@Insert("insert into member (idx, userid, userpw, username, useremail, userbirth, usergender)"
-			+ " values(0, #{userid}, #{userpw}, #{username}, #{useremail}, #{userbirth}, #{usergender})")
+	@Insert("insert into member (user_id, user_pw, user_name, user_email, user_birth, user_gender)"
+			+ " values(#{user_id}, #{user_pw}, #{user_name}, #{user_email}, #{user_birth}, #{user_gender})")
 	int insertMember(MemberDTO dto);
 
-	@Select("select * from member where userid=#{userid} and userpw=#{userpw}")
+	@Select("select * from member where user_id=#{user_id} and user_pw=#{user_pw}")
 	MemberDTO loginMember(MemberDTO dto);
 
-	@Select("select userid from member where useremail = #{useremail}")
+	@Select("select user_id from member where user_email = #{user_email}")
 	String findId(MemberDTO dto);
 
-	@Update("update member set userpw = #{userpw} where userid=#{userid} and useremail=#{useremail}")
+	@Update("update member set user_pw = #{user_pw} where user_id=#{user_id} and user_email=#{user_email}")
 	int reNewPw(MemberDTO dto);
 
-	@Select("select count(*) from member where userid=#{id}")
+	@Select("select count(*) from member where user_id=#{id}")
 	int idCheck(String id);
 
-	@Select("select count(*) from member where useremail=#{email}")
+	@Select("select count(*) from member where user_email=#{email}")
 	int emailCheck(String email);
 
 }

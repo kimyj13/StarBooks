@@ -6,8 +6,8 @@
 <c:if test="${pageContext.request.method == 'GET' }">
 <h2 style="width : 133px;">비밀번호 재설정</h2>
 	<form id="newpwForm" method="POST">
-		<p><input type="text" name="userid" placeholder="아이디(ID)"></p>
-		<p><input type="text" name="useremail" placeholder="이메일주소" style="margin-top : 0;"></p>
+		<p><input type="text" name="user_id" placeholder="아이디(ID)"></p>
+		<p><input type="text" name="user_email" placeholder="이메일주소" style="margin-top : 0;"></p>
 		<p><input type="submit" value="비밀번호재발급"></p>
 	</form>
 	<div>
@@ -19,7 +19,7 @@
 		form.onsubmit = function(e){
 			e.preventDefault();
 			const emailTest = /[A-Za-z0-9_\.\-]+@[A-z-a-z\-]+\.[A-Za-z\-]/;
-			const eCheck = document.querySelector('input[name="useremail"]').value;
+			const eCheck = document.querySelector('input[name="user_email"]').value;
 			if(!emailTest.test(eCheck)){
 				alert('이메일 양식에 맞지 않습니다');
 				return;

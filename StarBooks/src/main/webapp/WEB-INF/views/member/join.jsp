@@ -6,41 +6,41 @@
 	<form id="joinForm" method="POST">
 		<p>
 			<span class="offfocus"></span>
-			<input type="text" name="userid" placeholder="아이디(ID)" onkeyup="idCheck(this.value)">
+			<input type="text" name="user_id" placeholder="아이디(ID)" onkeyup="idCheck(this.value)">
 			<output class="idCheck"></output>
 		</p>
 		<p>
 			<span class="offfocus"></span>
-			<input type="password" name="userpw" placeholder="비밀번호" onkeyup="pwCheck(this.value)">
+			<input type="password" name="user_pw" placeholder="비밀번호" onkeyup="pwCheck(this.value)">
 			<output class="pwCheck"></output>
 		</p>
 		<p>
 		    <span class="offfocus" style="top : 0;">비밀번호 재입력</span>
-			<input type="password" name="userpw2" placeholder="비밀번호 재입력"  style="margin-top:-1px;" onkeyup="pwCheck2(this.value)">
+			<input type="password" name="user_pw2" placeholder="비밀번호 재입력"  style="margin-top:-1px;" onkeyup="pwCheck2(this.value)">
 			<output class="pwCheck2"></output>
 		</p>
 		<p>
 		    <span class="offfocus">이름 입력</span>
-			<input type="text" name="username" placeholder="이름" onkeyup="nameCheck(this.value)">
+			<input type="text" name="user_name" placeholder="이름" onkeyup="nameCheck(this.value)">
 			<output class="nameCheck"></output>
 		</p>
 		<p>
 		    <span class="offfocus"></span>
-			<input type="text" name="useremail" placeholder="이메일 주소" onkeyup="emailCheck(this.value)">
+			<input type="text" name="user_email" placeholder="이메일 주소" onkeyup="emailCheck(this.value)">
 			<output class="emailCheck"></output>
 		</p>
 		<div class="clearfix" style="height : 70px;">
 		<p style="float : left">
 			<span class="offfocus"></span>
-			<input type="text" name="userbirth" placeholder="생년월일" style="width : 240px;" onkeyup="birthCheck(this.value)">
+			<input type="text" name="user_birth" placeholder="생년월일" style="width : 240px;" onkeyup="birthCheck(this.value)">
 			<output class="birthCheck" style="width: 350px;position: absolute;top: 60px;"></output>
 		</p>
 		<div class="button-wrap clearfix">
-			<input class="hidden radio-label" id="female-button" type="radio" name="usergender" checked="checked" value="여">
+			<input class="hidden radio-label" id="female-button" type="radio" name="user_gender" checked="checked" value="여">
     		<label class="button-label" for="female-button">
       			<h4>여자</h4>
     		</label>
-    		<input class="hidden radio-label" id="malebutton" type="radio" name="usergender" value="남">
+    		<input class="hidden radio-label" id="malebutton" type="radio" name="user_gender" value="남">
     		<label class="button-label" for="malebutton">
       			<h4>남자</h4>
     		</label>
@@ -72,7 +72,7 @@ let test3 = /[\{\}\[\]\/?.,;:|\(\)~!@#$%^&*\\\=\'\"]/;
 let birthTest = /[0-9]/;
 
 	function idCheck(id){
-		const inputId = document.querySelector('input[name="userid"]');
+		const inputId = document.querySelector('input[name="user_id"]');
 		const msg = document.querySelector('.idCheck');
 		if(!test1.test(id) || !test2.test(id) && (id.length >= 5 && id.length <= 20)){
 			msg.value="5~20자. 영문,숫자조합해주세요."
@@ -111,7 +111,7 @@ let birthTest = /[0-9]/;
 
 	function pwCheck(pw){
 		//console.log(pw)
-		const inputPw = document.querySelector('input[name="userpw"]');
+		const inputPw = document.querySelector('input[name="user_pw"]');
 		if(!test1.test(pw) || !test2.test(pw) || !test3.test(pw) || !(pw.length >= 8 && pw.length <= 15)){
 			document.querySelector('.pwCheck2').value = "8~15자. 영문,숫자,특수문자를 조합해주세요.";
 			inputPw.setAttribute('class', 'nocheck');
@@ -123,8 +123,8 @@ let birthTest = /[0-9]/;
 	}
 	
 	function pwCheck2(pw2) {
-		const pw = document.querySelector('input[name="userpw"]').value;
-		const inputPw2 = document.querySelector('input[name="userpw2"]')
+		const pw = document.querySelector('input[name="user_pw"]').value;
+		const inputPw2 = document.querySelector('input[name="user_pw2"]')
 
 			if(pw != pw2){
 				document.querySelector('.pwCheck2').value = "비밀번호가 일치하지 않습니다.";
@@ -138,7 +138,7 @@ let birthTest = /[0-9]/;
 	}
 	
 	function nameCheck(name){
-		const inputName = document.querySelector('input[name="username"]');
+		const inputName = document.querySelector('input[name="user_name"]');
 		console.log(test1.test(name))
 		console.log(test3.test(name))
 		if(test1.test(name) || test3.test(name)){
@@ -154,7 +154,7 @@ let birthTest = /[0-9]/;
 	}
 	
 	function emailCheck(email){
-		const inputEmail = document.querySelector('input[name="useremail"]');
+		const inputEmail = document.querySelector('input[name="user_email"]');
 		const msg = document.querySelector('.emailCheck');
 		if(!emailTest.test(email)){
 			msg.value= "올바른 이메일 형식이 아닙니다.";
@@ -193,7 +193,7 @@ let birthTest = /[0-9]/;
 	}
 	
 	function birthCheck(birth){
-		const inputBirth = document.querySelector('input[name="userbirth"]');
+		const inputBirth = document.querySelector('input[name="user_birth"]');
 		console.log(birth.length)
 		if(!birthTest.test(birth) || (birth.length != 8)){
 			document.querySelector('.birthCheck').value = "생년월일을 8자리 숫자로만 입력하세요(19900101)";
@@ -229,10 +229,10 @@ let birthTest = /[0-9]/;
         span.classList.remove('offfocus');
         span.classList.add('onfocus');
         switch(target.name){
-            case 'userid' : span.innerText='아이디 : 5~20자 영문,숫자조합';break;
-            case 'userpw' : span.innerText = '비밀번호 : 8~15자 영문,숫자,특수문자 조합';break;
-            case 'userbirth' : span.innerText = '생년월일(예: 19900101)';break;
-            case 'useremail':span.innerText = 'E-Mail (예:starbooks@naver.com)';break;
+            case 'user_id' : span.innerText='아이디 : 5~20자 영문,숫자조합';break;
+            case 'user_pw' : span.innerText = '비밀번호 : 8~15자 영문,숫자,특수문자 조합';break;
+            case 'user_birth' : span.innerText = '생년월일(예: 19900101)';break;
+            case 'user_email':span.innerText = 'E-Mail (예:starbooks@naver.com)';break;
         }
             
 	});
@@ -246,13 +246,13 @@ let birthTest = /[0-9]/;
             span.classList.add('offfocus');
 
             switch(target.name){
-                case 'userid' : target.placeholder='아이디(ID)'; break;
-                case 'userpw' : target.placeholder='비밀번호'; break;
-                case 'userpw2' :target.placeholder='비밀번호 재입력'; break;
-                case 'username' : target.placeholder = '이름'; break;
-                case 'useremail' : target.placeholder = '이메일 주소'; break;
-                case 'userbirth' : target.placeholder='비밀번호 재입력'; break;
-                case 'useremail' :target.placeholder='생년월일'; break;
+                case 'user_id' : target.placeholder='아이디(ID)'; break;
+                case 'user_pw' : target.placeholder='비밀번호'; break;
+                case 'user_pw2' :target.placeholder='비밀번호 재입력'; break;
+                case 'user_name' : target.placeholder = '이름'; break;
+                case 'user_email' : target.placeholder = '이메일 주소'; break;
+                case 'user_birth' : target.placeholder='비밀번호 재입력'; break;
+                case 'user_email' :target.placeholder='생년월일'; break;
             }   
         }
     });

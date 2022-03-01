@@ -9,8 +9,8 @@
 
    	<article class="infoWrap clearfix">
    		<div class="myinfo">
-   			<h3>${login.userid }님</h3>
-   			<p style="font-size: 14px;">${login.useremail }</p>
+   			<h3>${login.user_id }님</h3>
+   			<p style="font-size: 14px;">${login.user_email }</p>
    			<p><button onclick="location.href='${cpath}/member/logout'">로그아웃</button></p>
    		</div>
    		<div class="mystar-info">
