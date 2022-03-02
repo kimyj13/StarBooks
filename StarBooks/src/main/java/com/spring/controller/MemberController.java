@@ -1,19 +1,16 @@
 package com.spring.controller;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -84,7 +81,12 @@ public class MemberController {
 	
 //	@PostMapping("/login")
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public ModelAndView login(MemberDTO dto,HttpSession session, HttpServletResponse response, HttpServletRequest request) throws NoSuchAlgorithmException, UnsupportedEncodingException{
+	public ModelAndView login(MemberDTO dto,HttpSession session, HttpServletResponse response, HttpServletRequest request, String url) throws NoSuchAlgorithmException, IOException{
+		System.out.println("login : " + url);
+		String viewName = "redirect:";
+		viewName += url == null ? "/" : url;
+		
+		
 		ModelAndView mav = new ModelAndView();
 		MemberDTO login = ms.loginMember(dto);
 		if(login != null) {
@@ -102,11 +104,9 @@ public class MemberController {
 				cookie.setMaxAge(0);
 				response.addCookie(cookie);
 			}
-			mav.setViewName("access");
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("msg", login.getUser_id() + "님 로그인 되었습니다.");
-			map.put("href", "");
-			mav.addObject("map", map);
+			
+			mav.setViewName(viewName);
+			
 			return mav;
 		}
 		mav.setViewName("alert");
@@ -120,7 +120,42 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/modify")
+	public ModelAndView modify(HttpSession session) {
+		ModelAndView mav = new ModelAndView("member/modify");
+		MemberDTO dto = (MemberDTO)session.getAttribute("login");
+		mav.addObject("dto", dto);
+		return mav;
+	}
 
+	@PostMapping(value="/modify/pwCheck", consumes = "application/json; charset=utf-8", produces = "application/text; charset=utf-8")
+	@ResponseBody
+	public String pwCheck(@RequestBody HashMap<String, String> map) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		System.out.println("map : " + map);
+		
+		boolean flag = ms.pwCheck(map.get("oldpw"), map.get("id"));
+		System.out.println(flag);
+		return flag ? "OK" : "현재 비밀번호와 일치하지 않습니다.";
+	}
+	
+	@PostMapping("/modify")
+	public ModelAndView modify(MemberDTO  dto, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		System.out.println("modify : " + dto.getUser_id());
+		ModelAndView mav = new ModelAndView();
+		int row = ms.changePW(dto);
+		if(row == 1) {
+		session.invalidate();
+		mav.setViewName("access");
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("msg","비밀번호 변경! 다시 로그인 해주세요.");
+		map.put("href", "/member/login");
+		mav.addObject("map", map);
+		return mav;	
+		}
+		mav.setViewName("alert");
+		mav.addObject("msg", "회원가입 실패했습니다. 잠시 후 다시 이용해주세요.");
+		return mav;
+	}
 	
 	@GetMapping("/findid")
 	public void findid() {}

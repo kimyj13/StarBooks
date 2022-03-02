@@ -25,4 +25,10 @@ public interface MemberDAO {
 	@Select("select count(*) from member where user_email=#{email}")
 	int emailCheck(String email);
 
+	@Select("select count(*) from member where user_id=#{user_id} and user_pw=#{user_pw}")
+	int pwCheck(MemberDTO dto);
+
+	@Update("update member set user_pw=#{user_pw} where user_id=#{user_id}")
+	int changePw(MemberDTO dto);
+
 }

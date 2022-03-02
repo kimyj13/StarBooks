@@ -66,6 +66,14 @@ public class MemberService {
 		int count = dao.emailCheck(email);
 		return count == 0;
 	}
+	
+	public boolean pwCheck(String oldpw, String id) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		MemberDTO dto = new MemberDTO();
+		dto.setUser_pw(getHash(oldpw));
+		dto.setUser_id(id);
+		int count = dao.pwCheck(dto);
+		return count == 1;
+	}
 
 	// 메일 발송 메서드
 //	@Autowired JavaMailSender sender;			
@@ -128,4 +136,11 @@ public class MemberService {
 //		}
 		
 	}
+
+	public int changePW(MemberDTO dto) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		dto.setUser_pw(getHash(dto.getUser_pw()));
+		return dao.changePw(dto);
+	}
+
+
 }

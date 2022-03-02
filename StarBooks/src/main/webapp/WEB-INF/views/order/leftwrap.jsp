@@ -22,7 +22,7 @@
           </li>
           <li><i class="xi-user xi-x"></i> 개인
               <ul>
-                  <li><a href="">정보변경</a></li>
+                  <li><a href="${cpath }/member/modify" class="modify">정보변경</a></li>
                   <li><a href="">1:1문의</a></li>
                   <li><a href="">내리뷰관리</a></li>
                   <li><a href="">내기기관리</a></li>
@@ -37,14 +37,16 @@ const arr = path.split('/');
 console.log(arr[arr.length-1]);
 const aOn = document.querySelector('ul.left-menu > li .'+ arr[arr.length-1]);
 /* console.log(aOn); */
-aOn.classList.add('on');
+if(aOn != null)
+	aOn.classList.add('on');
 </script>
 <script>
 	const a = document.querySelectorAll('ul.left-menu > li a');
 	a.forEach(a=>a.onclick=function(e){
 		e.preventDefault();
 		const on = document.querySelector('.on');
-		on.classList.remove('class', 'on');
+		if(on != null)
+			on.classList.remove('class', 'on');
 		e.target.classList.add('class', 'on');
 		console.log(e.target.href);
 		location.href = e.target.href;
