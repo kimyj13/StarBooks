@@ -26,15 +26,17 @@
 	
 	<interceptors>
 		<interceptor>
-			<mapping path="/**" />
+			<mapping path="/member/**" />
+			<mapping path="/order/**" />
 			
-			<exclude-mapping path="/"/>
+<!-- 			<exclude-mapping path="/"/>
+			<exclude-mapping path="/resources/**"/> -->
 			<exclude-mapping path="/member/login"/>
 			<exclude-mapping path="/member/join/**"/>
 			<exclude-mapping path="/member/findid"/>
 			<exclude-mapping path="/member/newpw"/>
-			<exclude-mapping path="/books/**"/>
-			<exclude-mapping path="/event/**"/>
+<!-- 			<exclude-mapping path="/books/**"/>
+			<exclude-mapping path="/event/**"/> -->
 			
 			<beans:bean id="LoginInterceptor" class="com.spring.interceptor.LoginInterceptor"></beans:bean>
 		</interceptor>
