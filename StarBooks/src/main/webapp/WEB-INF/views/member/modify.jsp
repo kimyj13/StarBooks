@@ -5,12 +5,12 @@
 <%@ include file="../order/leftwrap.jsp" %>
    <div class="rightWrap" id="modify">
    <h2>정보변경</h2>
-   <table>
+   <table class="modify">
    <tbody>
    	<tr>
    		<th>이름</th>
-   		<td>${dto.user_name } 
-   			<button onclick="location.href='${cpath }/member/delete'">회원탈퇴</button>
+   		<td style="position: relative;">${dto.user_name } 
+   			<button onclick="location.href='${cpath }/member/delete'" class="delBtn">회원탈퇴</button>
    		</td>
    	</tr>
    	<tr>
@@ -29,8 +29,13 @@
    				<p><input type="password" name="old_pw" onkeyup="oldPwCheck(this.value)"><output class="old_pw"></output></p>
    				<p><input type="password" name="user_pw" onkeyup="pwCheck(this.value)"><output class="user_pw"></output></p>
    				<p><input type="password" name="user_pw2" onkeyup="pwCheck2(this.value)"><output class="user_pw2"></output></p>
-   				<p><input type="submit" value="비밀번호변경"></p>
+   				<p><input type="submit" value="비밀번호변경" class="cBtn"></p>
    			</form>
+   			<div>
+   				<h4>비밀번호 변경시 유의사항</h4>
+   				<p>1. 비밀번호는 총 8 ~ 15자로 작성해주세요.</p>
+   				<p>2. 영문,숫자,특수문자를 조합해서 작성해주세요.</p>
+   			</div>
    		</td>
    	</tr>
    	<tr>
@@ -85,7 +90,7 @@
 	function pwCheck(pw){	
 		const msg = document.querySelector('.user_pw');
 		if(!test1.test(pw) || !test2.test(pw) || !test3.test(pw) || !(pw.length >= 8 && pw.length <= 15)){
-			msg.value = "8~15자. 영문,숫자,특수문자를 조합해주세요.";
+			msg.value = "비밀번호 유의 사항에 맞게 적어주세요..";
 			msg.style.color = 'red';
 		}else{
 			msg.value = "";
@@ -116,6 +121,8 @@
 		if(opFlag && (inputPw.value==inputPw2.value)){
 			//const user_pw = document.querySelector('input[name="user_pw"]');
 			chngePwForm.submit();
+		}else{
+			alert('비밀번호 유의사항에 맞게 작성 후 버튼을 눌러주세요.')
 		}
 	}
 	

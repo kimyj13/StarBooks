@@ -225,3 +225,71 @@ article.mystar-recents {
 .cartTab-wrap > div.tabCont div.block >div:first-child {
 	display: block;;
 }
+
+/* modify */
+table.modify {
+	width : 100%;
+	margin : 0 auto;
+	border-collapse: collapse;
+	border-bottom: 1px solid #e6e8eb;
+}
+table.modify > tbody > tr {
+	border-top : 1px solid  #e6e8eb;
+}
+table.modify > tbody > tr > th {
+	width : 180px;
+	padding : 15px;
+	background: #f2f4f5;
+	font-size : 16px;
+	font-weight: bold;
+	color: #808991;
+}
+table.modify > tbody > tr > td {
+	padding : 15px;
+	color : #333;
+	font-weight: bold;
+}
+
+button.delBtn {
+	display: block;
+	position: absolute;
+	right: 20px;
+	top : 10px;
+}
+
+table.modify > tbody > tr > td > form > p > input[type="password"] {
+	width : 220px;
+	margin : 5px 0;
+	padding : 10px;
+	border : 1px solid #ddd;
+	border-radius : 5px;
+}
+table.modify > tbody > tr > td > form > p > input[type="submit"] {
+	margin : 5px 0;
+	padding : 5px 15px;
+    font-size: 14px;
+	background-color: #1f8ce6;
+    color: white;
+    border : none;
+   border : 2px solid #1f8ce6;
+    border-radius: 3px;
+}
+table.modify > tbody > tr > td > form > p > input[type="submit"]:hover {
+	background-color: white;
+    color: #1f8ce6;
+    border : 2px solid #1f8ce6;
+}
+table.modify > tbody > tr > td > form > p > output {
+	font-size : 12px;
+	margin-left : 10px;
+}
+table.modify > tbody > tr > td > div {
+	padding : 10px 0;
+	font-size : 16px;
+	color : #636c73;
+	font-weight: normal;
+}
+table.modify > tbody > tr > td > div > p {
+	padding : 5px;
+	font-size: 14px;
+}
