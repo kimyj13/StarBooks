@@ -3,16 +3,16 @@
 <%@ include file="../header.jsp" %>
 
 
-<section id="newBook" style="height : 2400px; padding-top : 20px;">
+<section id="newBook" class="wideGridWarp">
 
 					<h1>신간도서</h1>
-					<div class="book-grid" style="width : 90%; display : grid; grid : repeat(6, 16%)/repeat(5, 20%); /* grid : repeat(6, 16%)/auto-flow 20%; */ grid-row-gap: 20px; margin : 20px auto;">
+					<div class="book-grid">
 							<c:forEach var="newBook" begin="0" end="29" items="${newBook }">
-								<div style=" width : 210px; height : 330px; margin : 0 auto; font-size : 13px;">
-									<img src="${newBook.coverLargeUrl}"  style="display: block; width: 90%; height : 260px; margin: 0 auto;" alt="${newBook.title }" title="${newBook.title }">
+								<div>
+									<img src="${newBook.coverLargeUrl}" alt="${newBook.title }" title="${newBook.title }">
 									<div>
-										<h3 style="display:block; width : 95%;height : 34px; margin : 5px auto; overflow : hidden;">${newBook.title }</h3>
-										<h4  style="display:block; width : 95%;  margin : 5px auto; font-size : 13px; color : #aaa">${newBook.author }</h4>
+										<h3>${newBook.title }</h3>
+										<h4>${newBook.author }</h4>
 									</div>
 								</div>
 							</c:forEach>

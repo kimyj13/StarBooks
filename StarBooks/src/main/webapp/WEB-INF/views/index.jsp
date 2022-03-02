@@ -11,7 +11,7 @@
         	<c:forEach var="newBook" items="${newBook }" begin="7" end="26">
         		<div style="width : 180px">
         			<div class="imgbg" style="background: url('${newBook.coverLargeUrl }') center no-repeat;  background-size: cover; "></div>
-        			<h3 style="display : block; width : 95%; height : 33px; margin : 5px auto 5px; color : lightgoldenrodyellow;font-size : 14px; overflow: hidden;">${newBook.title }</h3>
+        			<h3 style="width : 95%; display : -webkit-box; white-space : normal;overflow : hidden; -webkit-line-clamp : 2; -webkit-box-orient : vertical;  margin : 5px auto 5px; color : lightgoldenrodyellow;font-size : 14px; overflow: hidden;">${newBook.title }</h3>
         			<p style="color : #ddd; font-weight: bold; font-size: 12px;">${newBook.author }</p>
         		</div>
         	</c:forEach>
@@ -97,7 +97,7 @@
     </section>
     
      <section id="week-bestWrap">
-        <h1 onclick="location.href='${cpath}/books/weekPick/105'">주간 Pick! 역사 기행</h1>
+        <h1 onclick="location.href='${cpath}/books/weekPick/105'" title="주간 PICK 더보기" style="cursor: pointer;">주간 Pick! 역사 기행</h1>
        <div class="week">
     		<ul  class="grid">
     		<c:forEach var="history" items="${history }" begin="0" end="8">

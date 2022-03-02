@@ -25,10 +25,12 @@
 								<button style="display: inline-block; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
 							</div>
 						</div>
-						<div class="book-grid" style="display : grid; grid : repeat(2, 50%)/auto-flow 20%;grid-row-gap: 10px;">
-							<c:forEach var="book" begin="1" end="10" items="${list }" >
-								<div style=" width : 150px; height : 200px; margin : 0 auto; border : 1px dashed coral">
-									<img src="${book.image}" style="height: 200px;width: 150px;">
+						<div class="book-grid book10">
+							<c:forEach var="book" begin="0" end="9" items="${list }" >
+								<div>
+									<img src="${book.image}" alt="${book.title }" title="${book.title }">
+									<p>${book.title }</p>
+									<p>${book.author }</p>
 								</div>
 							</c:forEach>
 						</div>
@@ -41,10 +43,12 @@
 								<button style="display: inline-block; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
 							</div>						
 						</div>
-						<div class="book-grid" style="display : grid; grid : repeat(1, 100%)/auto-flow 20%;">
-							<c:forEach var="book" begin="1" end="5" items="${clist }" >
-								<div style=" width : 150px; height : 200px; margin : 0 auto; border : 1px dashed coral">
-									<img src="${book.image }" style="height: 200px;width: 150px">
+						<div class="book-grid">
+							<c:forEach var="book" begin="0" end="4" items="${clist }" >
+								<div>
+									<img src="${book.image }" alt="${book.title }" title="${book.title }">
+									<p style="">${book.title }</p>
+									<p style="">${book.author }</p>
 								</div>
 							</c:forEach>
 						</div>
@@ -56,51 +60,55 @@
 							<div class="btn-wrap">
 								<button style="display: inline-block; border-radius: 5px">전체보기 &nbsp; <span style="font-size: 10px;letter-spacing: -2px;">>></span></button>
 							</div>
-							</div>
-						<div class="book-grid" style="display : grid; grid : repeat(1, 100%)/auto-flow 20%;">
-							<c:forEach var="book" begin="1" end="5" >
-								<div style=" width : 150px; height : 200px; margin : 0 auto; border : 1px dashed coral">
+						</div>
+						<div class="book-grid">
+							<c:forEach var="book" begin="0" end="4" >
+								<div style=" width : 150px; height : 230px; margin : 0 auto; border : 1px dashed coral">
 									<img style="">
 								</div>
 							</c:forEach>
 						</div>
 					</div>	
 				</div>
-				<div class="cont2">
-					<h2>content2</h2>
-					<div class="book-grid" style="display : grid; grid : repeat(4, 25%)/auto-flow 20%;grid-row-gap: 10px;">
-							<c:forEach var="book" begin="1" end="20" >
-								<div style=" width : 150px; height : 250px; margin : 0 auto; border : 1px dashed coral">
+				<div class="cont2 wide-grid">
+					<h2>전체보기</h2>
+					<div class="book-grid">
+							<c:forEach var="book" begin="0" end="19" items="${list }" >
+								<div>
+									<img src="${book.image}" alt="${book.title }" title="${book.title }">
+									<p>${book.title }</p>
+									<p>${book.author }</p>
+								</div>
+							</c:forEach>
+						</div>
+				</div>
+				<div class="cont3 wide-grid">
+					<h2>신간</h2>
+					<div class="book-grid">
+							<c:forEach var="book" begin="0" end="19" >
+								<div style=" ">
 									<img style="">
 								</div>
 							</c:forEach>
 						</div>
 				</div>
-				<div class="cont3">
-					<h2>content3</h2>
-					<div class="book-grid" style="display : grid; grid : repeat(4, 25%)/auto-flow 20%;grid-row-gap: 10px;">
-							<c:forEach var="book" begin="1" end="20" >
-								<div style=" width : 150px; height : 250px; margin : 0 auto; border : 1px dashed coral">
-									<img style="">
+				<div class="cont4 wide-grid">
+					<h2>베스트셀러</h2>
+					<div class="book-grid">
+							<c:forEach var="book" begin="0" end="19" items="${clist }" >
+								<div>
+									<img src="${book.image }" alt="${book.title }" title="${book.title }">
+									<p style="">${book.title }</p>
+									<p style="">${book.author }</p>
 								</div>
 							</c:forEach>
 						</div>
 				</div>
-				<div class="cont4">
-					<h2>content4</h2>
-					<div class="book-grid" style="display : grid; grid : repeat(4, 25%)/auto-flow 20%;grid-row-gap: 10px;">
+				<div class="cont5 wide-grid">
+					<h2>무료책</h2>
+					<div class="book-grid">
 							<c:forEach var="book" begin="1" end="20" >
-								<div style=" width : 150px; height : 250px; margin : 0 auto; border : 1px dashed coral">
-									<img style="">
-								</div>
-							</c:forEach>
-						</div>
-				</div>
-				<div class="cont5">
-					<h2>content5</h2>
-					<div class="book-grid" style="display : grid; grid : repeat(4, 25%)/auto-flow 20%;grid-row-gap: 10px;">
-							<c:forEach var="book" begin="1" end="20" >
-								<div style=" width : 150px; height : 250px; margin : 0 auto; border : 1px dashed coral">
+								<div>
 									<img style="">
 								</div>
 							</c:forEach>

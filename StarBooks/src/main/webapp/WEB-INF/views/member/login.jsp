@@ -16,7 +16,7 @@
 		<p><input type="password" name="user_pw" placeholder="비밀번호" style="margin-top : 0; border-bottom : none; border-top : none;"></p>
 		<p style="width : 400px;height : 45px; line-height : 45px; border : 1px solid #d6deeb; background-color : #f7fbff;  color :#303538;  padding-left:10px;">
 			<input type="checkbox" id="idCookie" name="isCookie" value="y" ${checked } style="width : 17px;height : 17px;">
-			<label for="idCheck" style="font-size : 14px;">로그인상태유지</label>
+			<label for="idCheck" style="font-size : 14px;">ID 기억하기</label>
 			
 			<a href="${cpath }/member/findid"  style="margin-left : 80px; font-size : 13px;">아이디 찾기</a> | 
 			<a href="${cpath }/member/newpw"  style="font-size : 13px;">비밀번호 재설정</a>

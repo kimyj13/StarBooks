@@ -1,7 +1,7 @@
 @charset "UTF-8";
  section#categoryWrap {
 	width : 1120px;
-	height: 1250px;
+	height: 1400px;
 	padding-top : 20px;
 }
  section#categoryWrap > article.left-category {
@@ -149,5 +149,87 @@ div.sub-category > div.btn-wrap {
 	padding-left : 15px; 
 	background : white;
 	z-index : 5;
-	
+}
+div.tab-content div.cont1 > div > div.book-grid  {
+	display : grid; 
+	grid : repeat(1, 100%)/auto-flow 20%
+}
+div.tab-content div.cont1 > div > div.book-grid.book10 {
+ grid : repeat(2, 50%)/auto-flow 20%;grid-row-gap: 10px;
+}
+div.tab-content div.cont1 > div > div.book-grid > div {
+	width : 150px; height : 230px; margin : 0 auto;
+}
+div.tab-content div.cont1 > div > div.book-grid > div >img {
+	display : block; margin : 0 auto;width: 120px; height : 170px; border: 1px solid #eee;
+}
+div.tab-content div.cont1 > div > div.book-grid > div > p {
+	width : 110px; margin : 5px auto 0; display : -webkit-box; white-space : normal;overflow : hidden; -webkit-line-clamp : 2; -webkit-box-orient : vertical; font-size : 14px; font-weight: bold; color : #333; 
+}
+div.tab-content div.cont1 > div > div.book-grid > div > p:last-child {
+	margin : 2px auto 0; color : #666; font-size: 13px; 
+}
+
+
+div.tab-content div.wide-grid > h2 {
+	margin : 0 20px 15px;
+}
+div.tab-content div.wide-grid > div.book-grid {
+	display : grid; 
+	grid : repeat(4, 270px)/repeat(5, 20%);
+	grid-row-gap: 10px;
+}
+div.tab-content div.wide-grid > div.book-grid > div {
+	width : 150px; height : 250px; margin : 0 auto;
+}
+div.tab-content div.wide-grid > div.book-grid > div > img {
+	display : block; 
+	margin : 0 auto;
+	width: 120px; 
+	height : 170px; 
+	border: 1px solid #eee;
+}
+div.tab-content div.wide-grid > div.book-grid > div > p {
+	width : 110px; margin : 5px auto 0; display : -webkit-box; white-space : normal;overflow : hidden; -webkit-line-clamp : 2; -webkit-box-orient : vertical; font-size : 14px; font-weight: bold; color : #333; 
+}
+div.tab-content div.wide-grid > div.book-grid > div > p:last-child {
+	margin : 2px auto 0; color : #666; font-size: 13px; 
+}
+
+/* newBook, bestSeller, weekPICK */
+section.wideGridWarp {
+	height : 2400px; padding-top : 30px;
+}
+
+section.wideGridWarp > div.book-grid {
+	width : 90%; display : grid; 
+	/* grid : repeat(6, 16%)/auto-flow 20%; */
+	grid : repeat(6, 16%)/repeat(5, 20%); 
+	grid-row-gap: 20px; margin : 20px auto;
+}
+section.wideGridWarp > div.book-grid > div {
+	width : 210px; height : 330px; margin : 0 auto; font-size : 13px;
+} 
+section.wideGridWarp > div.book-grid > div >img {
+	display: block;
+	width: 90%; 
+	height : 260px;
+	 margin: 0 auto;
+	 border : 1px solid #eee;
+}
+section.wideGridWarp > div.book-grid > div > div {
+	width : 90%; 
+	margin : 5px auto; 
+}
+section.wideGridWarp > div.book-grid > div > div > h3 {
+	display : -webkit-box; 
+	white-space : normal;
+	-webkit-line-clamp : 2; 
+	-webkit-box-orient : vertical;
+	 overflow : hidden;
+}
+section.wideGridWarp > div.book-grid > div > div > h4 {
+	display:block; 
+	font-size : 12px; 
+	color : #aaa
 }

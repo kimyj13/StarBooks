@@ -171,7 +171,7 @@ public class BookService {
 		ArrayList<BookDTO> array = null;
 		try {
 			String query = URLEncoder.encode(str,"UTF-8");
-			 URL url = new URL(urladdr2+"d_titl="+query +"&d_catg="+cate+ "&display=15");			// 한페이지에 보이는 목록 수 : 15
+			 URL url = new URL(urladdr2+"d_titl="+query +"&d_catg="+cate+ "&display=20");			// 한페이지에 보이는 목록 수 : 15
 			 HttpsURLConnection con= (HttpsURLConnection) url.openConnection();
 			con.setDoOutput(true);
 			con.setRequestMethod("GET");
@@ -242,7 +242,7 @@ public ArrayList<BookDTO>bookListC(String str, int cate){
 		ArrayList<BookDTO> array = null;
 		try {
 			String query = URLEncoder.encode(str,"UTF-8");
-			 URL url = new URL(urladdr2+"d_titl="+query +"&d_catg="+cate+ "&sort=count&display=15");			// 한페이지에 보이는 목록 수 : 15
+			 URL url = new URL(urladdr2+"d_titl="+query +"&d_catg="+cate+ "&sort=count&display=20");			// 한페이지에 보이는 목록 수 : 15
 			 HttpsURLConnection con= (HttpsURLConnection) url.openConnection();
 			con.setDoOutput(true);
 			con.setRequestMethod("GET");
